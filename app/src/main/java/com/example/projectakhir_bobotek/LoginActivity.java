@@ -1,26 +1,53 @@
 package com.example.projectakhir_bobotek;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
 
-public class LoginActivity extends AppCompatActivity {
+import com.example.projectakhir_bobotek.databinding.ActivityLoginBinding;
+import com.example.projectakhir_bobotek.databinding.ActivityMainBinding;
 
-    TextView tvRegister;
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
+    ActivityLoginBinding binding;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        tvRegister=findViewById(R.id.tvRegister);
+        binding.loginBtLogin.setOnClickListener(this);
+        binding.loginTvRegister.setOnClickListener(this);
+    }
 
-        tvRegister.setOnClickListener(view -> {
-            Intent intent=new Intent(LoginActivity.this,RegisterActivity.class);
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.loginBtLogin:
+                String email, password;
+                email = binding.loginEtEmail.getText().toString();
+                password = binding.loginEtPassword.getText().toString();
+
+                loginProses(email, password);
+                break;
+            case R.id.loginTvRegister:
+                registerProses();
+                break;
+        }
+    }
+
+    private void loginProses(String email, String password){
+        if (email.equals("bobotek") && password.equals("bobotek")){
+            Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
-        });
+        }
+    }
 
+    private void registerProses(){
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 }
