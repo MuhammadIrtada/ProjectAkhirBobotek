@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/ombak" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/registerBtRegister"
         android:layout_width="342dp"
         android:layout_height="50dp"
         android:backgroundTint="#F4F6FF"
@@ -41,7 +41,7 @@
         android:text="I have been able to read and understand the use of  my personal data explained in the Privacy Policy"
         android:textColor="@color/white"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/registerBtRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
