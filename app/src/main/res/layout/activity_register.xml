@@ -64,7 +64,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName7"
+        android:id="@+id/registerEtEmail"
         android:layout_width="340dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -78,11 +78,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6"
+        app:layout_constraintTop_toBottomOf="@+id/registerEtPhoneNumber"
         tools:text="Email Address" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName9"
+        android:id="@+id/registerEtPassword"
         android:layout_width="340dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -96,11 +96,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7"
+        app:layout_constraintTop_toBottomOf="@+id/registerEtEmail"
         tools:text="Password" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName8"
+        android:id="@+id/registerEtFullName"
         android:layout_width="340dp"
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
@@ -118,7 +118,7 @@
         tools:text="Full Name" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/registerEtPhoneNumber"
         android:layout_width="340dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -132,7 +132,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8"
+        app:layout_constraintTop_toBottomOf="@+id/registerEtFullName"
         tools:text="Phone Number" />
 
     <TextView
@@ -142,8 +142,8 @@
         android:fontFamily="@font/montserrat"
         android:text="Minimum 8 characters, including lowercase, uppercase, and a number."
         android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName9"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName9" />
+        app:layout_constraintStart_toStartOf="@+id/registerEtPassword"
+        app:layout_constraintTop_toBottomOf="@+id/registerEtPassword" />
 
     <ImageView
         android:id="@+id/imageView6"
