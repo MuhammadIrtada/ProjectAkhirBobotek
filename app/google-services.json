@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "616217862180",
+    "firebase_url": "https://project-akhir-bobotek-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "project-akhir-bobotek",
+    "storage_bucket": "project-akhir-bobotek.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616217862180:android:1c52990e5c4db7975af8b1",
+        "android_client_info": {
+          "package_name": "bm.example.bobotek"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "616217862180-m5ta68gqmbg4tpln0cn0rfg3lc5h07dg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARxMNOHaYG__rLu0567Zoib8MDhiFof6s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "616217862180-m5ta68gqmbg4tpln0cn0rfg3lc5h07dg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616217862180:android:0537b0f7376ba4cb5af8b1",
+        "android_client_info": {
+          "package_name": "com.example.projectakhir_bobotek"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "616217862180-m5ta68gqmbg4tpln0cn0rfg3lc5h07dg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARxMNOHaYG__rLu0567Zoib8MDhiFof6s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "616217862180-m5ta68gqmbg4tpln0cn0rfg3lc5h07dg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
