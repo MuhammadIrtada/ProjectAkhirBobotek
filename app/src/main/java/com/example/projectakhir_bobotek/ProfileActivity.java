@@ -1,19 +1,33 @@
 package com.example.projectakhir_bobotek;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.projectakhir_bobotek.databinding.ActivityMainBinding;
 import com.example.projectakhir_bobotek.databinding.ActivityProfileBinding;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
-
+public class ProfileActivity extends AppCompatActivity {
     ActivityProfileBinding binding;
-    private FirebaseAuth mAuth;
+
+    // Inisiasi database refrence
+    DatabaseReference databaseReference;
+    DatabaseReference profileReference;
+
+    FirebaseAuth mAuth;
+
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,33 +35,55 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Menginstansiasi Auth
         mAuth = FirebaseAuth.getInstance();
 
-        binding.profileBtDownload.setOnClickListener(this);
-        binding.profileBtUpload.setOnClickListener(this);
-        binding.profileBtLogout.setOnClickListener(this);
-        binding.profileBtSave.setOnClickListener(this);
+        // Menginstansiasi database
+        databaseReference = FirebaseDatabase.getInstance("https://project-akhir-bobotek-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
+        profileReference = databaseReference.child("users").child(mAuth.getUid()).child("profile");
+
+        // Mengambil data profile
+        getProfile();
+
+        // button Top Up
+        user = new User();
+        binding.profileBtTopUp.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfileActivity.this, TopUpActvity.class);
+            intent.putExtra("AMPROFILE", user.saldo);
+            startActivity(intent);
+        });
+
+        // button Save
+        binding.profileBtSave.setOnClickListener(v ->
+                saveProfile());
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.profileBtDownload:
-                break;
-            case R.id.profileBtUpload:
-                break;
-            case R.id.profileBtLogout:
-                signOut();
-                break;
-            case R.id.profileBtSave:
-                break;
-        }
+    public void getProfile() {
+        profileReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                user = snapshot.getValue(User.class);
+                binding.profileEtFullName.setText(user.fullName);
+                binding.profileEtPhone.setText(user.phoneNumber);
+                binding.profileTvAmount.setText(String.valueOf(user.saldo));
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.out.println(error);
+            }
+        });
     }
 
-    private void signOut() {
-        mAuth.signOut();
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-        finish();
+    public void saveProfile() {
+        String newName = binding.profileEtFullName.getText().toString();
+        String newPhone = binding.profileEtPhone.getText().toString();
+        user.fullName = newName;
+        user.phoneNumber = newPhone;
+        profileReference.setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(ProfileActivity.this, "Berhasil melakukan save", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

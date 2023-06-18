@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="26dp"
+    tools:context=".PaymentSuccessAvticity">
+
+    <TextView
+        android:id="@+id/ps_tv_revNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/ps_tv_amount"
+        app:layout_constraintTop_toBottomOf="@+id/ps_tv_amount" />
+
+    <TextView
+        android:id="@+id/ps_tv_merName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/ps_tv_revNum"
+        app:layout_constraintTop_toBottomOf="@+id/ps_tv_revNum" />
+
+    <TextView
+        android:id="@+id/ps_tv_payMethod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/ps_tv_merName"
+        app:layout_constraintTop_toBottomOf="@+id/ps_tv_merName" />
+
+    <TextView
+        android:id="@+id/ps_tv_payTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/ps_tv_payMethod"
+        app:layout_constraintTop_toBottomOf="@+id/ps_tv_payMethod" />
+
+    <TextView
+        android:id="@+id/ps_tv_sender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/ps_tv_payTime"
+        app:layout_constraintTop_toBottomOf="@+id/ps_tv_payTime" />
+
+    <TextView
+        android:id="@+id/ps_tv_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <Button
+        android:id="@+id/ps_btn_toHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back To Home"
+        app:layout_constraintStart_toStartOf="@+id/ps_tv_sender"
+        app:layout_constraintTop_toBottomOf="@+id/ps_tv_sender" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Payment Succes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

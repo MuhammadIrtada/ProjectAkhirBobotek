@@ -12,19 +12,19 @@
         android:theme="@style/Theme.Bobotek"
         tools:targetApi="31">
         <activity
-            android:name=".TopupActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PaymentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".MapsActivity"
             android:exported="false" />
         <activity
+            android:name=".TopUpActvity"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentSuccessAvticity"
+            android:exported="false" />
+        <activity
             android:name=".CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProductDetailActivity"
             android:exported="false" />
         <activity
             android:name=".ProfileActivity"
