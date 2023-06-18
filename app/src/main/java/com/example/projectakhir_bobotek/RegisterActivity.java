@@ -11,16 +11,20 @@ import android.widget.Toast;
 
 import com.example.projectakhir_bobotek.databinding.ActivityProfileBinding;
 import com.example.projectakhir_bobotek.databinding.ActivityRegisterBinding;
+import com.example.projectakhir_bobotek.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     ActivityRegisterBinding binding;
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         setContentView(binding.getRoot());
 
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         binding.registerBtRegister.setOnClickListener(this);
         binding.registerBtRegister.setEnabled(false);
@@ -47,21 +52,24 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.registerBtRegister:
-                String email, password;
+                String email, password, fullName, phoneNumber;
                 email = binding.registerEtEmail.getText().toString();
                 password = binding.registerEtPassword.getText().toString();
-                registerProses(email, password);
+                fullName = binding.registerEtFullName.getText().toString();
+                phoneNumber = binding.registerEtPhoneNumber.getText().toString();
+                registerProses(email, password, fullName, phoneNumber);
                 break;
         }
     }
 
-    private void registerProses(String email, String password){
+    private void registerProses(String email, String password, String fullName, String phoneNumber){
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+                            addDataToDatabase(mAuth.getUid(), fullName, phoneNumber);
+
                             mAuth.signOut();
                             updateUI();
                         } else {
@@ -72,6 +80,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     }
                 });
 
+    }
+
+    private void addDataToDatabase(String userId, String fullName, String phoneNumber) {
+        User user = new User(fullName, phoneNumber);
+        mDatabase.child("users").child(userId).child("profile").setValue(user);
     }
 
     private void updateUI(){
