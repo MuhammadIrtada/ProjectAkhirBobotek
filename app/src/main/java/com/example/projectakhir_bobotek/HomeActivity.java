@@ -1,48 +1,45 @@
 package com.example.projectakhir_bobotek;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Toast;
+
+
+import com.bumptech.glide.Glide;
 import com.example.projectakhir_bobotek.databinding.ActivityHomeBinding;
+import com.example.projectakhir_bobotek.databinding.ActivityUploadProfileImageBinding;
 import com.example.projectakhir_bobotek.model.Medicine;
+import com.example.projectakhir_bobotek.model.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-
 public class HomeActivity extends AppCompatActivity {
-    private ActivityHomeBinding binding; // Binding ActivityHome
-    private ArrayList<Medicine> medicineArratList; // Arraylist untuk daftar medicine
-    private HomeAdapter homeAdapter; // Adapter
 
-    // inisiais DatabaseRefernce
-    private DatabaseReference databaseReference;
-    private DatabaseReference medicine;
-    private FirebaseAuth mAuth;
+    ActivityHomeBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Melakukan inflate binding
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         // Menghubungkan pada Firebase
-        databaseReference = FirebaseDatabase.getInstance("https://project-akhir-bobotek-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
-        medicine = this.databaseReference.child("medicine");
+        databaseReference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
+        medicine = this.databaseReference.child("medicine");
+        userReference = this.databaseReferencechild("users").child(mAuth.getUid()).child("profile");
+
 
         // Melakuakan create medicine pada realtime database
 //         binding.homeBtnAddMedicine.setOnClickListener(v -> {
@@ -70,7 +67,20 @@ public class HomeActivity extends AppCompatActivity {
             Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
             startActivity(intent);
         });
-        
+
+        ValueEventListener userListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                updateUI(user);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(HomeActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+            }
+        };
+        userReference.addValueEventListener(userListener);
     }
 
     // mengambil seluruh data obat
@@ -108,7 +118,7 @@ public class HomeActivity extends AppCompatActivity {
 
         Medicine obat4 = new Medicine("Diapet Kapsul - 10 Pcs", "Antasid", "Herbal medicine used to treat diarrhea.", 3000, 15);
         pushFirebase(obat4);
-}
+    }
 
     // Menambahkan obat pada firebase database
     private void pushFirebase(Medicine medicine){
@@ -125,5 +135,10 @@ public class HomeActivity extends AppCompatActivity {
                         Toast.makeText(HomeActivity.this, "Gagal menambahkan data medicine", Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    private void updateUI(User user) {
+        System.out.println("Nama: " + user.profileImage);
+        Glide.with(getApplicationContext()).load(user.profileImage).into(binding.homeIcProfile);
     }
 }

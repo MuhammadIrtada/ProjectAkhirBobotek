@@ -69,8 +69,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             addDataToDatabase(mAuth.getUid(), fullName, phoneNumber);
-
-                            mAuth.signOut();
                             updateUI();
                         } else {
                             // If sign in fails, display a message to the user.
