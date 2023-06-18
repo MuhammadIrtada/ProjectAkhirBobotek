@@ -5,11 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
-import com.example.projectakhir_bobotek.databinding.ActivityMainBinding;
-import com.example.projectakhir_bobotek.databinding.ActivityProfileBinding;
+import com.example.projectakhir_bobotek.databinding.ActivityProfileNewBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -18,8 +16,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class ProfileActivity extends AppCompatActivity {
-    ActivityProfileBinding binding;
+public class ProfileActivityNew extends AppCompatActivity {
+    ActivityProfileNewBinding binding;
 
     // Inisiasi database refrence
     DatabaseReference databaseReference;
@@ -32,7 +30,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityProfileBinding.inflate(getLayoutInflater());
+        binding = ActivityProfileNewBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         // Menginstansiasi Auth
@@ -48,7 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
         // button Top Up
         user = new User();
         binding.profileBtTopUp.setOnClickListener(v -> {
-            Intent intent = new Intent(ProfileActivity.this, TopUpActvity.class);
+            Intent intent = new Intent(ProfileActivityNew.this, TopUpActvity.class);
             intent.putExtra("AMPROFILE", user.saldo);
             startActivity(intent);
         });
@@ -82,7 +80,7 @@ public class ProfileActivity extends AppCompatActivity {
         profileReference.setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(ProfileActivity.this, "Berhasil melakukan save", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProfileActivityNew.this, "Berhasil melakukan save", Toast.LENGTH_SHORT).show();
             }
         });
     }

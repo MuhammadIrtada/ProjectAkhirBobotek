@@ -27,7 +27,7 @@ public class PaymentSuccessAvticity extends AppCompatActivity {
         binding.psTvPayTime.setText(intent.getStringExtra("PAYTIME"));
 
         binding.psBtnToHome.setOnClickListener(v -> {
-            Intent i = new Intent(PaymentSuccessAvticity.this, HomeActivity.class);
+            Intent i = new Intent(PaymentSuccessAvticity.this, HomeActivityNew.class);
             startActivity(i);
         });
     }

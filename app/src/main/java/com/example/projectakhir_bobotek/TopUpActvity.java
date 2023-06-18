@@ -6,7 +6,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.projectakhir_bobotek.databinding.ActivityTopUpBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -44,7 +43,7 @@ public class TopUpActvity extends AppCompatActivity {
         profilReference.child("saldo").setValue(newAmount).addOnSuccessListener(unused -> {
             Toast.makeText(this, "Berhasil Membahkan saldo", Toast.LENGTH_SHORT).show();
         });
-        Intent intent = new Intent(this, ProfileActivity.class);
+        Intent intent = new Intent(this, ProfileActivityNew.class);
         startActivity(intent);
     }
 }

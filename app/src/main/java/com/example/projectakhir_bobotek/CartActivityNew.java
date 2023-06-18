@@ -8,8 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.projectakhir_bobotek.databinding.ActivityCartBinding;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.example.projectakhir_bobotek.databinding.ActivityCartNewBinding;
+import com.example.projectakhir_bobotek.databinding.ActivityCartNewBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,11 +20,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Objects;
 
 
-public class CartActivity extends AppCompatActivity {
-    private ActivityCartBinding binding;
+public class CartActivityNew extends AppCompatActivity {
+    private ActivityCartNewBinding binding;
     private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
     private DatabaseReference cartReference;
@@ -36,7 +35,7 @@ public class CartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // Melakukan inflate binding
         super.onCreate(savedInstanceState);
-        binding = ActivityCartBinding.inflate(getLayoutInflater());
+        binding = ActivityCartNewBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         // Auth
@@ -87,7 +86,7 @@ public class CartActivity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(CartActivity.this, "Gagal menampilkan daftar cart", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CartActivityNew.this, "Gagal menampilkan daftar cart", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -96,7 +95,7 @@ public class CartActivity extends AppCompatActivity {
             user = new User();
             user = unused.getResult().getValue(User.class);
             if (totalBiaya > user.saldo){
-                Toast.makeText(CartActivity.this, "Harap lakukan top UP terlebih dahulu", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CartActivityNew.this, "Harap lakukan top UP terlebih dahulu", Toast.LENGTH_SHORT).show();
                 return;
             }
             int newSaldo = user.saldo - totalBiaya;
@@ -113,7 +112,7 @@ public class CartActivity extends AppCompatActivity {
         String reffNum = reffNum();
         String payTime = payTime();
 
-        Intent intent = new Intent(CartActivity.this, PaymentSuccessAvticity.class);
+        Intent intent = new Intent(CartActivityNew.this, PaymentSuccessAvticity.class);
         intent.putExtra("AMOUNT", totalBiaya);
         intent.putExtra("PAYTIME", payTime);
         intent.putExtra("REFFNUM", reffNum);

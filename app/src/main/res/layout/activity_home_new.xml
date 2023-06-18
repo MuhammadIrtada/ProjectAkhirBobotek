@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_marginHorizontal="26dp"
     android:layout_marginVertical="10dp"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivityNew">
 
     <TextView
         android:id="@+id/textView2"

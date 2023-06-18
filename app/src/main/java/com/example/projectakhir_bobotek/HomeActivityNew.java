@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.projectakhir_bobotek.databinding.ActivityHomeBinding;
+import com.example.projectakhir_bobotek.databinding.ActivityHomeNewBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,8 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 
-public class HomeActivity extends AppCompatActivity {
-    private ActivityHomeBinding binding; // Binding ActivityHome
+public class HomeActivityNew extends AppCompatActivity {
+    private ActivityHomeNewBinding binding; // Binding ActivityHome
     private ArrayList<Medicine> medicineArratList; // Arraylist untuk daftar medicine
     private HomeAdapter homeAdapter; // Adapter
 
@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // Melakukan inflate binding
         super.onCreate(savedInstanceState);
-        binding = ActivityHomeBinding.inflate(getLayoutInflater());
+        binding = ActivityHomeNewBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         // Menghubungkan pada Firebase
@@ -46,7 +46,7 @@ public class HomeActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
          binding.homeBtnAddMedicine.setOnClickListener(v -> {
             mAuth.signOut();
-            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+            Intent intent = new Intent(HomeActivityNew.this, LoginActivity.class);
             startActivity(intent);
         }
          );
@@ -60,13 +60,13 @@ public class HomeActivity extends AppCompatActivity {
 
         // Button cart
         binding.homeIcCart.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+            Intent intent = new Intent(HomeActivityNew.this, CartActivityNew.class);
             startActivity(intent);
         });
 
         // Button profile
         binding.homeIcProfile.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+            Intent intent = new Intent(HomeActivityNew.this, ProfileActivityNew.class);
             startActivity(intent);
         });
         
@@ -115,13 +115,13 @@ public class HomeActivity extends AppCompatActivity {
                 .addOnSuccessListener(this, new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Toast.makeText(HomeActivity.this, "berhasil Menambahkan data medicine", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HomeActivityNew.this, "berhasil Menambahkan data medicine", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(this, new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(HomeActivity.this, "Gagal menambahkan data medicine", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HomeActivityNew.this, "Gagal menambahkan data medicine", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
