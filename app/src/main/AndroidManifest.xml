@@ -12,6 +12,21 @@
         android:theme="@style/Theme.Bobotek"
         tools:targetApi="31">
         <activity
+            android:name=".TopupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MapsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CartActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
@@ -24,7 +39,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-
     </application>
 
 </manifest>
