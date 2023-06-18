@@ -12,6 +12,18 @@
         android:theme="@style/Theme.Bobotek"
         tools:targetApi="31">
         <activity
+            android:name=".TopUpActvity"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentSuccessAvticity"
+            android:exported="false" />
+        <activity
+            android:name=".CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProductDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
@@ -21,10 +33,10 @@
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".HomeActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
