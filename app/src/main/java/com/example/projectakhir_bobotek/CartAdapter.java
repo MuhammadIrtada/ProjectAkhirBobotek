@@ -55,7 +55,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.VH> {
             // Instansias authentikasi & realtime database
             mAuth = FirebaseAuth.getInstance();
             databaseReference = FirebaseDatabase.getInstance("https://project-akhir-bobotek-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
-            cartReference = databaseReference.child("user");
+            cartReference = databaseReference.child("users");
         }
 
         public void bind(Cart cart){

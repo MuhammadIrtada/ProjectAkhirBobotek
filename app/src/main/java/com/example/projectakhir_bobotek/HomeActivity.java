@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.projectakhir_bobotek.databinding.ActivityHomeBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,6 +29,7 @@ public class HomeActivity extends AppCompatActivity {
     // inisiais DatabaseRefernce
     private DatabaseReference databaseReference;
     private DatabaseReference medicine;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +43,12 @@ public class HomeActivity extends AppCompatActivity {
         medicine = this.databaseReference.child("medicine");
 
         // Melakuakan create medicine pada realtime database
-         binding.homeBtnAddMedicine.setOnClickListener(v ->
-         createMedicine()
+        mAuth = FirebaseAuth.getInstance();
+         binding.homeBtnAddMedicine.setOnClickListener(v -> {
+            mAuth.signOut();
+            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
          );
 
         // Mengatur Layout Manager
@@ -57,6 +63,13 @@ public class HomeActivity extends AppCompatActivity {
             Intent intent = new Intent(HomeActivity.this, CartActivity.class);
             startActivity(intent);
         });
+
+        // Button profile
+        binding.homeIcProfile.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+            startActivity(intent);
+        });
+        
     }
 
     // mengambil seluruh data obat
