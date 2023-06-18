@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/i"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F4F6FF">
@@ -22,8 +21,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_cart"
-        android:layout_width="384dp"
-        android:layout_height="347dp"
+        android:layout_width="391dp"
+        android:layout_height="399dp"
         android:layout_marginTop="19dp"
         android:layout_marginBottom="248dp"
         android:nestedScrollingEnabled="false"
@@ -33,7 +32,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCartTitle"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.529"
         tools:itemCount="5"
         tools:listitem="@layout/item_product" />
 
@@ -48,7 +47,7 @@
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recycler_cart"
-        app:layout_constraintVertical_bias="0.67">
+        app:layout_constraintVertical_bias="0.871">
 
         <TextView
             android:id="@+id/tvTotalPaymentCart"
@@ -101,9 +100,11 @@
         android:text="Subtotal"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/tvSubTotal"
-        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_cart" />
+        app:layout_constraintTop_toBottomOf="@+id/recycler_cart"
+        app:layout_constraintVertical_bias="0.0" />
+
 
     <TextView
         android:id="@+id/tvSubTotal"
@@ -142,7 +143,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_total"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.341" />
 
     <ImageButton
         android:id="@+id/ibBackCart"
