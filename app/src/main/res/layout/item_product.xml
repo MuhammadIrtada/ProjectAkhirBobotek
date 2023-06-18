@@ -10,81 +10,72 @@
         android:id="@+id/ivBgProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvPrice"
-        app:layout_constraintHorizontal_bias="0.307"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.666"
         app:srcCompat="@drawable/kotak" />
 
     <TextView
-        android:id="@+id/tvQuantity"
+        android:id="@+id/cart_tv_kuantitas"
         android:layout_width="10dp"
         android:layout_height="21dp"
+        android:layout_marginStart="8dp"
         android:text="0"
         android:textAlignment="center"
-        app:layout_constraintEnd_toStartOf="@+id/ibPlusBtn"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toEndOf="@+id/ivMinBtn"
-        tools:layout_editor_absoluteY="89dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/cart_ic_min"
+        app:layout_constraintStart_toEndOf="@+id/cart_ic_min"
+        app:layout_constraintTop_toTopOf="@+id/cart_ic_min" />
 
     <TextView
-        android:id="@+id/tvProductName"
+        android:id="@+id/cart_tv_namaObat"
         android:layout_width="145dp"
         android:layout_height="19dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
         android:text="Betadine Antiseptic"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.204"
         app:layout_constraintStart_toEndOf="@+id/ivBgProduct"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/ivBgProduct" />
 
     <TextView
-        android:id="@+id/tvPrice"
+        android:id="@+id/cart_tv_harga"
         android:layout_width="58dp"
         android:layout_height="19dp"
+        android:layout_marginTop="4dp"
         android:text="Rp 6.100"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="52dp" />
+        app:layout_constraintStart_toStartOf="@+id/cart_tv_namaObat"
+        app:layout_constraintTop_toBottomOf="@+id/cart_tv_namaObat" />
 
     <ImageButton
-        android:id="@+id/ivMinBtn"
+        android:id="@+id/cart_ic_min"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ivBgProduct"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrice"
+        app:layout_constraintStart_toStartOf="@+id/cart_tv_harga"
+        app:layout_constraintTop_toBottomOf="@+id/cart_tv_harga"
         app:layout_constraintVertical_bias="0.875"
         app:srcCompat="@drawable/buttonmin" />
 
     <ImageButton
-        android:id="@+id/ibDeleteBtn"
+        android:id="@+id/cart_ic_trash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tvPrice"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.615"
         app:srcCompat="@drawable/buttondelete" />
 
     <ImageButton
-        android:id="@+id/ibPlusBtn"
+        android:id="@+id/cart_ic_plus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ibDeleteBtn"
-        app:layout_constraintHorizontal_bias="0.352"
-        app:layout_constraintStart_toEndOf="@+id/ivMinBtn"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrice"
-        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/cart_tv_kuantitas"
+        app:layout_constraintTop_toBottomOf="@+id/cart_tv_harga"
         app:srcCompat="@drawable/buttonplus" />
 
     <ImageView

@@ -8,14 +8,12 @@
 
     <ImageView
         android:id="@+id/kotakPutih"
-        android:layout_width="418dp"
+        android:layout_width="match_parent"
         android:layout_height="466dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ivPayment"
-        app:layout_constraintVertical_bias="0.996"
         app:srcCompat="@drawable/kotakbawah" />
 
     <TextView
@@ -43,7 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvTimePay" />
 
     <TextView
-        android:id="@+id/tvRefPayment"
+        android:id="@+id/ps_tv_revNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -54,10 +52,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.754"
         app:layout_constraintStart_toEndOf="@+id/tvRefPay"
-        app:layout_constraintTop_toBottomOf="@+id/tvAmountPayment" />
+        app:layout_constraintTop_toBottomOf="@+id/ps_tv_amount" />
 
     <TextView
-        android:id="@+id/tvAmountPayment"
+        android:id="@+id/ps_tv_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -71,7 +69,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvPaymentSuccess" />
 
     <TextView
-        android:id="@+id/tvTimePayment"
+        android:id="@+id/ps_tv_payTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -82,10 +80,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toEndOf="@+id/tvTimePay"
-        app:layout_constraintTop_toBottomOf="@+id/tvMethodPayment" />
+        app:layout_constraintTop_toBottomOf="@+id/ps_tv_payMethod" />
 
     <TextView
-        android:id="@+id/tvSenderPayment"
+        android:id="@+id/ps_tv_sender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -96,10 +94,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.795"
         app:layout_constraintStart_toEndOf="@+id/tvSenderPay"
-        app:layout_constraintTop_toBottomOf="@+id/tvTimePayment" />
+        app:layout_constraintTop_toBottomOf="@+id/ps_tv_payTime" />
 
     <TextView
-        android:id="@+id/tvMerchantPayment"
+        android:id="@+id/ps_tv_merName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -110,10 +108,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.786"
         app:layout_constraintStart_toEndOf="@+id/tvMerchantPay"
-        app:layout_constraintTop_toBottomOf="@+id/tvRefPayment" />
+        app:layout_constraintTop_toBottomOf="@+id/ps_tv_revNum" />
 
     <TextView
-        android:id="@+id/tvMethodPayment"
+        android:id="@+id/ps_tv_payMethod"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -124,7 +122,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.677"
         app:layout_constraintStart_toEndOf="@+id/tvMethodPay"
-        app:layout_constraintTop_toBottomOf="@+id/tvMerchantPayment" />
+        app:layout_constraintTop_toBottomOf="@+id/ps_tv_merName" />
 
     <TextView
         android:id="@+id/tvPaymentSuccess"
@@ -142,9 +140,8 @@
 
     <ImageView
         android:id="@+id/ivPayment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="327dp"
+        android:layout_height="348dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
@@ -152,7 +149,7 @@
         app:srcCompat="@drawable/kapsul" />
 
     <Button
-        android:id="@+id/btBackPayment"
+        android:id="@+id/ps_btn_toHome"
         android:layout_width="319dp"
         android:layout_height="53dp"
         android:background="@drawable/bg_btn_ungu"
@@ -162,14 +159,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSenderPayment"
+        app:layout_constraintTop_toBottomOf="@+id/ps_tv_sender"
         app:layout_constraintVertical_bias="0.45" />
 
     <TextView
         android:id="@+id/tvTitlePayment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="46dp"
         android:text="Payment"
         android:textColor="@color/white"
         android:textSize="25sp"

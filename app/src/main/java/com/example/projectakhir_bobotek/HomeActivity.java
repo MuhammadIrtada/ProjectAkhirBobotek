@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.projectakhir_bobotek.databinding.ActivityHomeBinding;
+import com.example.projectakhir_bobotek.model.Medicine;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,15 +42,15 @@ public class HomeActivity extends AppCompatActivity {
         // Menghubungkan pada Firebase
         databaseReference = FirebaseDatabase.getInstance("https://project-akhir-bobotek-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
         medicine = this.databaseReference.child("medicine");
+        mAuth = FirebaseAuth.getInstance();
 
         // Melakuakan create medicine pada realtime database
-        mAuth = FirebaseAuth.getInstance();
-         binding.homeBtnAddMedicine.setOnClickListener(v -> {
-            mAuth.signOut();
-            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
-            startActivity(intent);
-        }
-         );
+//         binding.homeBtnAddMedicine.setOnClickListener(v -> {
+//            mAuth.signOut();
+//            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+//            startActivity(intent);
+//        }
+//         );
 
         // Mengatur Layout Manager
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);

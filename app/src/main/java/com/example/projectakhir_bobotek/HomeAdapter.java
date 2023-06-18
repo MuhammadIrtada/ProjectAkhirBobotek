@@ -7,7 +7,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.projectakhir_bobotek.databinding.ItemMadicineBinding;
+import com.example.projectakhir_bobotek.databinding.ItemMedicineBinding;
+import com.example.projectakhir_bobotek.model.Medicine;
 
 import java.util.ArrayList;
 
@@ -23,7 +24,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.VH> {
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemMadicineBinding binding = ItemMadicineBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        ItemMedicineBinding binding = ItemMedicineBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new VH(binding);
     }
 
@@ -39,9 +40,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.VH> {
 
     public class VH extends RecyclerView.ViewHolder{
         // Melakukan binding pada view holder
-        final ItemMadicineBinding binding;
+        final ItemMedicineBinding binding;
 
-        public VH(ItemMadicineBinding binding) {
+        public VH(ItemMedicineBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

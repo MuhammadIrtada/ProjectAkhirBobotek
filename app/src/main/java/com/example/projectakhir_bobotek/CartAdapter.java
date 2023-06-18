@@ -7,7 +7,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.projectakhir_bobotek.databinding.ItemCartBinding;
+import com.example.projectakhir_bobotek.databinding.ItemProductBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,7 +26,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.VH> {
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemCartBinding binding = ItemCartBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        ItemProductBinding binding = ItemProductBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new VH(binding);
     }
 
@@ -42,14 +42,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.VH> {
 
     public class VH extends RecyclerView.ViewHolder{
         // Melakukan binding pada view holder
-        final ItemCartBinding binding;
+        final ItemProductBinding binding;
 
         // Menginisiasi database reference & firebase Auth
         DatabaseReference databaseReference;
         DatabaseReference cartReference;
         FirebaseAuth mAuth;
 
-        public VH(ItemCartBinding binding) {
+        public VH(ItemProductBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
             // Instansias authentikasi & realtime database

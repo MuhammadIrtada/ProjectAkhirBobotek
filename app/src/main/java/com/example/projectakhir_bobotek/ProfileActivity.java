@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.projectakhir_bobotek.databinding.ActivityMainBinding;
 import com.example.projectakhir_bobotek.databinding.ActivityProfileBinding;
+import com.example.projectakhir_bobotek.model.User;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -47,7 +48,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         // button Top Up
         user = new User();
-        binding.profileBtTopUp.setOnClickListener(v -> {
+        binding.profilBtTopUp.setOnClickListener(v -> {
             Intent intent = new Intent(ProfileActivity.this, TopUpActvity.class);
             intent.putExtra("AMPROFILE", user.saldo);
             startActivity(intent);

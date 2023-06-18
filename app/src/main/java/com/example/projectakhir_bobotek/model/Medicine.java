@@ -1,4 +1,4 @@
-package com.example.projectakhir_bobotek;
+package com.example.projectakhir_bobotek.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -14,7 +14,7 @@ public class Medicine implements Parcelable {
     private String key;
 
     // Constructor
-    Medicine (String nama, String kategori, String deskripsi, int harga, int stok){
+    public Medicine(String nama, String kategori, String deskripsi, int harga, int stok){
         this.nama = nama;
         this.kategori = kategori;
         this.deskripsi = deskripsi;

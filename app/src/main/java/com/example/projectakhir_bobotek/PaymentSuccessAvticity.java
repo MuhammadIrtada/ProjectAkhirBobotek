@@ -6,16 +6,16 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.projectakhir_bobotek.databinding.ActivityCartBinding;
-import com.example.projectakhir_bobotek.databinding.ActivityPaymentSuccessAvticityBinding;
+import com.example.projectakhir_bobotek.databinding.ActivityPaymentBinding;
 
 public class PaymentSuccessAvticity extends AppCompatActivity {
-    ActivityPaymentSuccessAvticityBinding binding;
+    ActivityPaymentBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Melakukan inflate binding
         super.onCreate(savedInstanceState);
-        binding = ActivityPaymentSuccessAvticityBinding.inflate(getLayoutInflater());
+        binding = ActivityPaymentBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         Intent intent = getIntent();

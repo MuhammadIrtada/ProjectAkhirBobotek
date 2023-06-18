@@ -8,14 +8,12 @@
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="418dp"
+        android:layout_width="match_parent"
         android:layout_height="466dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ivProductDetail"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/kotakbawah" />
 
     <ImageView
@@ -25,11 +23,11 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPriceDetail"
+        app:layout_constraintTop_toBottomOf="@+id/pd_tv_harga"
         app:srcCompat="@drawable/tolakangen" />
 
     <TextView
-        android:id="@+id/tvTitleDeetail"
+        android:id="@+id/pd_tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -42,7 +40,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvPriceDetail"
+        android:id="@+id/pd_tv_harga"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -52,10 +50,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleDeetail" />
+        app:layout_constraintTop_toBottomOf="@+id/pd_tv_name" />
 
     <Button
-        android:id="@+id/btAddToCart"
+        android:id="@+id/pd_btn_pesan"
         android:layout_width="319dp"
         android:layout_height="53dp"
         android:background="@drawable/bg_btn_ungu"
@@ -65,7 +63,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescDetail"
+        app:layout_constraintTop_toBottomOf="@+id/pd_tv_des"
         app:layout_constraintVertical_bias="0.475" />
 
     <TextView
@@ -91,33 +89,28 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.166"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCatDetail" />
+        app:layout_constraintStart_toStartOf="@+id/pd_tv_kategori"
+        app:layout_constraintTop_toBottomOf="@+id/pd_tv_kategori" />
 
     <TextView
-        android:id="@+id/tvDescDetail"
+        android:id="@+id/pd_tv_des"
         android:layout_width="293dp"
         android:layout_height="142dp"
         android:layout_marginTop="16dp"
         android:text="@string/description_product"
         android:textColor="#707175"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvDescription"
         app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
     <TextView
-        android:id="@+id/tvCatDetail"
+        android:id="@+id/pd_tv_kategori"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Herbal Supplement"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.194"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvCategoryDetail"
         app:layout_constraintTop_toBottomOf="@+id/tvCategoryDetail" />
 
     <ImageButton

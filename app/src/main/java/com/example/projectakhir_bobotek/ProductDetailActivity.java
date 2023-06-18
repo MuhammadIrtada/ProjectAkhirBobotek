@@ -6,7 +6,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.projectakhir_bobotek.databinding.ActivityProductDetailBinding;
+import com.example.projectakhir_bobotek.databinding.ActivityDetailBinding;
+import com.example.projectakhir_bobotek.model.Medicine;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -20,7 +21,7 @@ import java.util.Objects;
 
 
 public class ProductDetailActivity extends AppCompatActivity {
-    private ActivityProductDetailBinding binding;
+    private ActivityDetailBinding binding;
     private Medicine medicine;
     DatabaseReference databaseReference;
     DatabaseReference cartReference;
@@ -35,7 +36,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // Melakukan inflate binding
         super.onCreate(savedInstanceState);
-        binding = ActivityProductDetailBinding.inflate(getLayoutInflater());
+        binding = ActivityDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         // Menghubungkan pada realtime database
