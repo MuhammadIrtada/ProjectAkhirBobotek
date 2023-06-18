@@ -19,7 +19,7 @@ public class PaymentSuccessAvticity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         Intent intent = getIntent();
-        binding.psTvAmount.setText(intent.getStringExtra("AMOUNT"));
+        binding.psTvAmount.setText(String.valueOf(intent.getIntExtra("AMOUNT", 0)));
         binding.psTvSender.setText(intent.getStringExtra("SENDER"));
         binding.psTvPayMethod.setText("BoBoTek Wallet");
         binding.psTvRevNum.setText(intent.getStringExtra("REFFNUM"));
@@ -29,6 +29,7 @@ public class PaymentSuccessAvticity extends AppCompatActivity {
         binding.psBtnToHome.setOnClickListener(v -> {
             Intent i = new Intent(PaymentSuccessAvticity.this, HomeActivity.class);
             startActivity(i);
+            finish();
         });
     }
 }
