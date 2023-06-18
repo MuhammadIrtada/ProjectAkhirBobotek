@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/loginEtEmail"
         android:layout_width="340dp"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
@@ -52,7 +52,7 @@
         tools:text="Email Address" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/loginEtPassword"
         android:layout_width="340dp"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
@@ -63,11 +63,11 @@
         android:inputType="textPassword"
         android:paddingLeft="10dp"
         android:paddingRight="0dp"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toStartOf="@+id/loginEtEmail"
+        app:layout_constraintTop_toBottomOf="@+id/loginEtEmail" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/loginBtLogin"
         android:layout_width="342dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
@@ -78,7 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/loginEtPassword" />
 
     <TextView
         android:id="@+id/textView4"
@@ -86,11 +86,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Don't have an account?"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintStart_toStartOf="@+id/loginBtLogin"
+        app:layout_constraintTop_toBottomOf="@+id/loginBtLogin" />
 
     <TextView
-        android:id="@+id/tvRegister"
+        android:id="@+id/loginTvRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -99,5 +99,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/textView4"
         app:layout_constraintStart_toEndOf="@+id/textView4" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
