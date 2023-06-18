@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/ivBgProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvPrice"
+        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.666"
+        app:srcCompat="@drawable/kotak" />
+
+    <TextView
+        android:id="@+id/tvQuantity"
+        android:layout_width="10dp"
+        android:layout_height="21dp"
+        android:text="0"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/ibPlusBtn"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toEndOf="@+id/ivMinBtn"
+        tools:layout_editor_absoluteY="89dp" />
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="145dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:text="Betadine Antiseptic"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toEndOf="@+id/ivBgProduct"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="58dp"
+        android:layout_height="19dp"
+        android:text="Rp 6.100"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="52dp" />
+
+    <ImageButton
+        android:id="@+id/ivMinBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivBgProduct"
+        app:layout_constraintTop_toBottomOf="@+id/tvPrice"
+        app:layout_constraintVertical_bias="0.875"
+        app:srcCompat="@drawable/buttonmin" />
+
+    <ImageButton
+        android:id="@+id/ibDeleteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvPrice"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.615"
+        app:srcCompat="@drawable/buttondelete" />
+
+    <ImageButton
+        android:id="@+id/ibPlusBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ibDeleteBtn"
+        app:layout_constraintHorizontal_bias="0.352"
+        app:layout_constraintStart_toEndOf="@+id/ivMinBtn"
+        app:layout_constraintTop_toBottomOf="@+id/tvPrice"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/buttonplus" />
+
+    <ImageView
+        android:id="@+id/ivProductPict"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBgProduct"
+        app:layout_constraintEnd_toEndOf="@+id/ivBgProduct"
+        app:layout_constraintStart_toStartOf="@+id/ivBgProduct"
+        app:layout_constraintTop_toTopOf="@+id/ivBgProduct"
+        app:srcCompat="@drawable/betadine" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
