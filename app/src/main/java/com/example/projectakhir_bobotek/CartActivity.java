@@ -52,6 +52,7 @@ public class CartActivity extends AppCompatActivity {
 
         // Menampilkan daftar cart dan mengatur biaya
         getAllCart();
+
         // Ketika menekan tomobol pesan
         binding.btnPay.setOnClickListener(v -> {
             pay();
@@ -101,11 +102,13 @@ public class CartActivity extends AppCompatActivity {
             int newSaldo = user.saldo - totalBiaya;
             cartReference.child(mAuth.getUid()).child("profile").child("saldo").setValue(newSaldo);
             cartReference.child(mAuth.getUid()).child("cart").removeValue();
-            intent();
+
+            // Melakukan intent
+            startIntent();
         });
     }
 
-    private void intent() {
+    private void startIntent() {
         // Mengirimkan intent pada payment succes
         String reffNum = reffNum();
         String payTime = payTime();
@@ -118,6 +121,7 @@ public class CartActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // Membuat pay time
     private String payTime() {
         // Mendapatkan waktu saat ini
         LocalDateTime currentTime = LocalDateTime.now();
@@ -129,6 +133,7 @@ public class CartActivity extends AppCompatActivity {
         return currentTime.format(formatter);
     }
 
+    // MEmbuat reff number
     private String reffNum() {
         // Mendapatkan waktu saat ini
         LocalDateTime currentTime = LocalDateTime.now();
