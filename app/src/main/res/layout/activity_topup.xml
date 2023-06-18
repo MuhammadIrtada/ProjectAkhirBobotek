@@ -11,22 +11,24 @@
         android:id="@+id/tvTitleTopUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Top Up"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.289"
+        app:layout_constraintHorizontal_bias="0.382"
         app:layout_constraintStart_toEndOf="@+id/ibBackTopUp"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btTopUp"
-        android:layout_width="319dp"
-        android:layout_height="53dp"
+        android:layout_width="350dp"
+        android:layout_height="52dp"
         android:layout_marginBottom="52dp"
         android:background="@drawable/bg_btn_ungu"
+        android:fontFamily="@font/montserrat_bold"
         android:text="T O P    U P"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -34,26 +36,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvInstructionDetail"
-        app:layout_constraintVertical_bias="0.878" />
+        app:layout_constraintVertical_bias="0.666" />
 
     <ImageButton
         android:id="@+id/ibBackTopUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_width="33dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/backungu" />
 
     <ImageView
         android:id="@+id/ivTopUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_width="189dp"
+        android:layout_height="169dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.549"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitleTopUp"
         app:srcCompat="@drawable/doketer" />
@@ -62,60 +64,56 @@
         android:id="@+id/tvAccPhoneNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Acount Phone Number"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.149"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivTopUp" />
+        app:layout_constraintBottom_toTopOf="@+id/etAccountNumber"
+        app:layout_constraintStart_toStartOf="@+id/etAccountNumber" />
 
     <TextView
         android:id="@+id/tvAmountTopUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Enter Amount"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAccountNumber" />
+        app:layout_constraintBottom_toTopOf="@+id/etAmount"
+        app:layout_constraintStart_toStartOf="@+id/etAmount" />
 
     <TextView
         android:id="@+id/tvInstruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Instruction"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAmount" />
+        app:layout_constraintBottom_toTopOf="@+id/tvInstructionDetail"
+        app:layout_constraintStart_toStartOf="@+id/tvInstructionDetail" />
 
     <TextView
         android:id="@+id/tvInstructionDetail"
-        android:layout_width="315dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_width="346dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/montserrat"
         android:text="@string/instruction"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvInstruction" />
+        app:layout_constraintTop_toBottomOf="@+id/etAmount" />
 
     <EditText
         android:id="@+id/etAccountNumber"
-        android:layout_width="319dp"
+        android:layout_width="350dp"
         android:layout_height="53dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="60dp"
         android:background="@color/white"
         android:ems="10"
+        android:fontFamily="@font/montserrat"
         android:hint="+62"
         android:inputType="phone"
         android:paddingLeft="10dp"
@@ -123,15 +121,16 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAccPhoneNum" />
+        app:layout_constraintTop_toBottomOf="@+id/ivTopUp" />
 
     <EditText
         android:id="@+id/etAmount"
-        android:layout_width="319dp"
+        android:layout_width="350dp"
         android:layout_height="53dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="35dp"
         android:background="@color/white"
         android:ems="10"
+        android:fontFamily="@font/montserrat"
         android:hint="Rp"
         android:inputType="textPersonName"
         android:outlineProvider="none"
@@ -139,6 +138,7 @@
         android:paddingRight="10dp"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAmountTopUp" />
+        app:layout_constraintTop_toBottomOf="@+id/etAccountNumber" />
 </androidx.constraintlayout.widget.ConstraintLayout>
