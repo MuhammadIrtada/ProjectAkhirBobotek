@@ -8,8 +8,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.bumptech.glide.Glide;
 import com.example.projectakhir_bobotek.databinding.ActivityHomeBinding;
 import com.example.projectakhir_bobotek.model.Medicine;
+import com.example.projectakhir_bobotek.model.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,9 +42,9 @@ public class HomeActivity extends AppCompatActivity {
 
         // Menghubungkan pada Firebase
         FirebaseSingleton firebaseSingleton = FirebaseSingleton.getInstance();
+        mAuth = firebaseSingleton.getFirebaseAuth();
         userReference = firebaseSingleton.getFirebaseDatabase().child("users").child(mAuth.getUid()).child("profile");
         medicineReference = firebaseSingleton.getFirebaseDatabase().child("medicine");
-        mAuth = firebaseSingleton.getFirebaseAuth();
 
         // Melakuakan create medicine pada realtime database
 //         binding.homeBtnAddMedicine.setOnClickListener(v -> {
@@ -147,7 +149,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void updateUI(User user) {
-        binding.homeTvSaldo.setText("Rp " + user.saldo);
+        binding.homeTvBalance.setText("Rp " + user.saldo);
         if (user.address != null) {
             binding.homeTvAddress.setText(user.address);
         }

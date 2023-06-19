@@ -167,7 +167,5 @@ public class UploadProfileImageActivity extends AppCompatActivity implements Vie
         mAuth = FirebaseAuth.getInstance();
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("users").child(mAuth.getUid()).child("profile").child("profileImage").setValue(profileImage);
-
-        mAuth.signOut();
     }
 }
