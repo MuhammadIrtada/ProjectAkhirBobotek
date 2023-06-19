@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.projectakhir_bobotek.databinding.ActivityHomeBinding;
 import com.example.projectakhir_bobotek.model.Medicine;
+import com.example.projectakhir_bobotek.model.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,12 +27,12 @@ public class HomeActivity extends AppCompatActivity {
     private ActivityHomeBinding binding; // Binding ActivityHome
     private ArrayList<Medicine> medicineArratList; // Arraylist untuk daftar medicine
     private HomeAdapter homeAdapter; // Adapter
+    User user;
 
     // inisiais DatabaseRefernce
-    private DatabaseReference databaseReference;
-    private DatabaseReference medicine;
+    private DatabaseReference medicineReference;
+    private DatabaseReference userReference;
     private FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Melakukan inflate binding
@@ -40,19 +41,11 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         // Menghubungkan pada Firebase
-        databaseReference = FirebaseDatabase.getInstance("https://project-akhir-bobotek-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
-        medicine = this.databaseReference.child("medicine");
-        mAuth = FirebaseAuth.getInstance();
+        FirebaseSingleton firebaseSingleton = FirebaseSingleton.getInstance();
+        userReference = firebaseSingleton.getFirebaseDatabase().child("users");
+        medicineReference = firebaseSingleton.getFirebaseDatabase().child("medicine");
+        mAuth = firebaseSingleton.getFirebaseAuth();
 
-        // Melakuakan create medicine pada realtime database
-//         binding.homeBtnAddMedicine.setOnClickListener(v -> {
-//            mAuth.signOut();
-//            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
-//            startActivity(intent);
-//        }
-//         );
-
-        // Mengatur Layout Manager
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         binding.homeRvMdcn.setLayoutManager(layoutManager);
 
@@ -70,12 +63,26 @@ public class HomeActivity extends AppCompatActivity {
             Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
             startActivity(intent);
         });
+
+        // Menampilkan profile
+        user = new User();
+        getProfile();
+
+        // Melakuakan create medicine pada realtime database
+//         binding.homeBtnAddMedicine.setOnClickListener(v -> {
+//            mAuth.signOut();
+//            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+//            startActivity(intent);
+//        }
+//         );
+
+        // Mengatur Layout Manager
         
     }
 
     // mengambil seluruh data obat
     private void getAllMedicine () {
-        this.medicine.addValueEventListener(new ValueEventListener() {
+        this.medicineReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 medicineArratList = new ArrayList<>();
@@ -95,6 +102,27 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    private void getProfile() {
+        this.userReference.child(mAuth.getUid()).child("profile").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                user = snapshot.getValue(User.class);
+                binding.homeTvBalance.setText(String.valueOf(user.saldo));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.out.println(error);
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        System.out.println("backpressed");
+        finishAndRemoveTask();
+    }
+
     // Instansiai obat
     private void createMedicine() {
         Medicine obat1 = new Medicine("Betadine Antiseptic", "Antiseptic", "Antiseptic solution for disinfection.", 6100, 10);
@@ -112,7 +140,7 @@ public class HomeActivity extends AppCompatActivity {
 
     // Menambahkan obat pada firebase database
     private void pushFirebase(Medicine medicine){
-        this.medicine.push().setValue(medicine)
+        this.medicineReference.push().setValue(medicine)
                 .addOnSuccessListener(this, new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {

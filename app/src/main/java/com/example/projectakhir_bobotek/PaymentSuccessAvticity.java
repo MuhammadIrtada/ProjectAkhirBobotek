@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.projectakhir_bobotek.databinding.ActivityCartBinding;
 import com.example.projectakhir_bobotek.databinding.ActivityPaymentBinding;
 
 public class PaymentSuccessAvticity extends AppCompatActivity {
@@ -27,8 +26,6 @@ public class PaymentSuccessAvticity extends AppCompatActivity {
         binding.psTvPayTime.setText(intent.getStringExtra("PAYTIME"));
 
         binding.psBtnToHome.setOnClickListener(v -> {
-            Intent i = new Intent(PaymentSuccessAvticity.this, HomeActivity.class);
-            startActivity(i);
             finish();
         });
     }

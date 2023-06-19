@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.projectakhir_bobotek.databinding.ActivityMainBinding;
 import com.example.projectakhir_bobotek.databinding.ActivityProfileBinding;
 import com.example.projectakhir_bobotek.model.User;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,7 +23,6 @@ public class ProfileActivity extends AppCompatActivity {
     ActivityProfileBinding binding;
 
     // Inisiasi database refrence
-    DatabaseReference databaseReference;
     DatabaseReference profileReference;
 
     FirebaseAuth mAuth;
@@ -36,12 +35,10 @@ public class ProfileActivity extends AppCompatActivity {
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Menginstansiasi Auth
-        mAuth = FirebaseAuth.getInstance();
-
-        // Menginstansiasi database
-        databaseReference = FirebaseDatabase.getInstance("https://project-akhir-bobotek-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
-        profileReference = databaseReference.child("users").child(mAuth.getUid()).child("profile");
+        // Menghubungkan database dan auth
+        FirebaseSingleton firebaseSingleton = FirebaseSingleton.getInstance();
+        mAuth = firebaseSingleton.getFirebaseAuth();
+        profileReference = firebaseSingleton.getFirebaseDatabase().child("users").child(mAuth.getUid()).child("profile");
 
         // Mengambil data profile
         getProfile();
@@ -57,6 +54,10 @@ public class ProfileActivity extends AppCompatActivity {
         // button Save
         binding.profileBtSave.setOnClickListener(v ->
                 saveProfile());
+
+        binding.back.setOnClickListener(v -> {
+            finish();
+        });
     }
 
     public void getProfile() {
@@ -76,6 +77,10 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void saveProfile() {
+        if (!validateForm()){
+            return;
+        }
+
         String newName = binding.profileEtFullName.getText().toString();
         String newPhone = binding.profileEtPhone.getText().toString();
         user.fullName = newName;
@@ -86,5 +91,22 @@ public class ProfileActivity extends AppCompatActivity {
                 Toast.makeText(ProfileActivity.this, "Berhasil melakukan save", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private boolean validateForm() {
+        boolean result = true;
+        if (TextUtils.isEmpty(binding.profileEtFullName.getText().toString())){
+            binding.profileEtFullName.setError("Required");
+            result = false;
+        } else {
+            binding.profileEtFullName.setError(null);
+        }
+        if (TextUtils.isEmpty(binding.profileEtPhone.getText().toString())){
+            binding.profileEtPhone.setError("Required");
+            result = false;
+        } else {
+            binding.profileEtPhone.setError(null);
+        }
+        return result;
     }
 }

@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/cart_tv_kuantitas"
-        android:layout_width="10dp"
+        android:layout_width="wrap_content"
         android:layout_height="21dp"
         android:layout_marginStart="8dp"
         android:text="0"

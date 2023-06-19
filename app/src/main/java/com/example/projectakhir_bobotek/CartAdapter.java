@@ -12,7 +12,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -53,9 +52,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.VH> {
             super(binding.getRoot());
             this.binding = binding;
             // Instansias authentikasi & realtime database
-            mAuth = FirebaseAuth.getInstance();
-            databaseReference = FirebaseDatabase.getInstance("https://project-akhir-bobotek-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
-            cartReference = databaseReference.child("users");
+           FirebaseSingleton firebaseSingleton = FirebaseSingleton.getInstance();
+           mAuth = firebaseSingleton.getFirebaseAuth();
+           cartReference = firebaseSingleton.getFirebaseDatabase().child("users").child(mAuth.getUid()).child("cart");
         }
 
         public void bind(Cart cart){
@@ -64,7 +63,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.VH> {
             binding.cartTvKuantitas.setText(String.valueOf(cart.getKuantitas()));
             binding.cartIcPlus.setOnClickListener(v -> {
                 int tambah = cart.getKuantitas() + 1;
-                this.cartReference.child(mAuth.getUid()).child("cart").child(cart.getKey()).child("kuantitas").setValue(tambah)
+                this.cartReference.child(cart.getKey()).child("kuantitas").setValue(tambah)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
@@ -83,7 +82,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.VH> {
                     return; // tidak bisa melakukan pengurangan
                 }
                 int kurang = cart.getKuantitas() - 1;
-                this.cartReference.child(mAuth.getUid()).child("cart").child(cart.getKey()).child("kuantitas").setValue(kurang)
+                this.cartReference.child(cart.getKey()).child("kuantitas").setValue(kurang)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
@@ -98,10 +97,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.VH> {
                         });
             });
             binding.cartIcTrash.setOnClickListener(v -> {
-//                this.cartReference.child(mAuth.getUid()).child("cart").child(cart.getKey()).child("nama").get().addOnCompleteListener(unsed -> {
-//                    System.out.println(unsed.getResult().getValue());
-//                });
-                this.cartReference.child(mAuth.getUid()).child("cart").child(cart.getKey()).removeValue().addOnSuccessListener(unused -> {
+                this.cartReference.child(cart.getKey()).removeValue().addOnSuccessListener(unused -> {
                     Toast.makeText(v.getContext(), "Berhasil Menghapus cart" , Toast.LENGTH_SHORT).show();
                 }).addOnFailureListener(e -> {
                     Toast.makeText(v.getContext(), "Gagal Menghapus cart" , Toast.LENGTH_SHORT).show();
