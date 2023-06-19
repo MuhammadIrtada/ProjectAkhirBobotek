@@ -68,6 +68,7 @@ public class ProfileActivity extends AppCompatActivity {
                 binding.profileEtFullName.setText(user.fullName);
                 binding.profileEtPhone.setText(user.phoneNumber);
                 binding.profileTvAmount.setText(String.valueOf(user.saldo));
+                binding.profileEtEmail.setText(mAuth.getCurrentUser().getEmail());
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
