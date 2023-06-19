@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView16" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_iv_profile_image" />
 
     <TextView
         android:id="@+id/textView21"
@@ -45,7 +45,7 @@
         app:srcCompat="@drawable/back_button" />
 
     <ImageView
-        android:id="@+id/imageView16"
+        android:id="@+id/profile_iv_profile_image"
         android:layout_width="119dp"
         android:layout_height="109dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -232,8 +232,8 @@
         android:layout_width="33dp"
         android:layout_height="42dp"
         android:backgroundTint="@color/button_aktif"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView16"
-        app:layout_constraintEnd_toEndOf="@+id/imageView16"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_iv_profile_image"
+        app:layout_constraintEnd_toEndOf="@+id/profile_iv_profile_image"
         app:srcCompat="@android:drawable/stat_sys_download" />
 
     <ImageView

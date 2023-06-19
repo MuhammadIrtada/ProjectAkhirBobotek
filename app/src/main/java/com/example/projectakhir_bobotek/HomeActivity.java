@@ -8,10 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-
 import com.bumptech.glide.Glide;
 import com.example.projectakhir_bobotek.databinding.ActivityHomeBinding;
-import com.example.projectakhir_bobotek.databinding.ActivityUploadProfileImageBinding;
 import com.example.projectakhir_bobotek.model.Medicine;
 import com.example.projectakhir_bobotek.model.User;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -19,6 +17,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -27,6 +26,10 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity {
 
     ActivityHomeBinding binding;
+    private DatabaseReference medicineReference;
+    private DatabaseReference userReference;
+    private ArrayList<Medicine> medicineArratList; // Arraylist untuk daftar medicine
+    private HomeAdapter homeAdapter; // Adapter
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +38,10 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         // Menghubungkan pada Firebase
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        mAuth = FirebaseAuth.getInstance();
-        medicine = this.databaseReference.child("medicine");
-        userReference = this.databaseReferencechild("users").child(mAuth.getUid()).child("profile");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        medicineReference = databaseReference.child("medicine");
+        userReference = databaseReference.child("users").child(mAuth.getUid()).child("profile");
 
 
         // Melakuakan create medicine pada realtime database
@@ -52,9 +55,6 @@ public class HomeActivity extends AppCompatActivity {
         // Mengatur Layout Manager
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         binding.homeRvMdcn.setLayoutManager(layoutManager);
-
-        // Menampilkan semua daftar obat
-        getAllMedicine();
 
         // Button cart
         binding.homeIcCart.setOnClickListener(v -> {
@@ -85,7 +85,7 @@ public class HomeActivity extends AppCompatActivity {
 
     // mengambil seluruh data obat
     private void getAllMedicine () {
-        this.medicine.addValueEventListener(new ValueEventListener() {
+        this.medicineReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 medicineArratList = new ArrayList<>();
@@ -122,7 +122,7 @@ public class HomeActivity extends AppCompatActivity {
 
     // Menambahkan obat pada firebase database
     private void pushFirebase(Medicine medicine){
-        this.medicine.push().setValue(medicine)
+        this.medicineReference.push().setValue(medicine)
                 .addOnSuccessListener(this, new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -138,7 +138,12 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void updateUI(User user) {
-        System.out.println("Nama: " + user.profileImage);
+        binding.homeTvSaldo.setText("Rp " + user.saldo);
+        if (user.address != null) {
+            binding.homeTvAddress.setText(user.address);
+        }
+
         Glide.with(getApplicationContext()).load(user.profileImage).into(binding.homeIcProfile);
+        getAllMedicine();
     }
 }

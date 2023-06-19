@@ -37,12 +37,15 @@ import java.util.Date;
 public class UploadProfileImageActivity extends AppCompatActivity implements View.OnClickListener {
 
     ActivityUploadProfileImageBinding binding;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityUploadProfileImageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        mAuth = FirebaseAuth.getInstance();
 
         binding.uploadProfileImageImgUpload.setOnClickListener(this);
         binding.uploadProfileImageBtNext.setOnClickListener(this);
@@ -62,15 +65,15 @@ public class UploadProfileImageActivity extends AppCompatActivity implements Vie
 
     private void uploadImage() {
         // Get the data from an ImageView as bytes
-        binding.uploadProfileImageUserImage.setDrawingCacheEnabled(true);
-        binding.uploadProfileImageUserImage.buildDrawingCache();
+//        binding.uploadProfileImageUserImage.setDrawingCacheEnabled(true);
+//        binding.uploadProfileImageUserImage.buildDrawingCache();
         Bitmap bitmap = ((BitmapDrawable) binding.uploadProfileImageUserImage.getDrawable()).getBitmap();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] data = baos.toByteArray();
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference("images").child("IMG" + new Date().getTime() + ".jpeg");
+        StorageReference storageRef = storage.getReference("images").child("IMG" + mAuth.getUid() + "-" + new Date().getTime() + ".jpeg");
 
         UploadTask uploadTask = storageRef.putBytes(data);
         uploadTask.addOnFailureListener(new OnFailureListener() {
@@ -161,7 +164,7 @@ public class UploadProfileImageActivity extends AppCompatActivity implements Vie
     }
 
     private void addDataToDatabase(String profileImage) {
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("users").child(mAuth.getUid()).child("profile").child("profileImage").setValue(profileImage);
 
