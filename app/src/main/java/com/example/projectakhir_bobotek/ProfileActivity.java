@@ -60,7 +60,7 @@ public class ProfileActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         // Menginstansiasi database
-        databaseReference = FirebaseDatabase.getInstance("https://project-akhir-bobotek-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
         profileReference = databaseReference.child("users").child(mAuth.getUid()).child("profile");
         storage = FirebaseStorage.getInstance();
 
@@ -90,6 +90,13 @@ public class ProfileActivity extends AppCompatActivity {
         // button download
         binding.profileBtDownload.setOnClickListener(v -> {
             downloadImage();
+        });
+
+        // button logout
+        binding.profileBtLogout.setOnClickListener(v -> {
+            mAuth.signOut();
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
         });
     }
 
