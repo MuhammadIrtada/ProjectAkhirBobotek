@@ -32,6 +32,7 @@
         android:layout_width="145dp"
         android:layout_height="19dp"
         android:layout_marginStart="8dp"
+        android:fontFamily="@font/montserrat"
         android:text="Betadine Antiseptic"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,21 +42,22 @@
 
     <TextView
         android:id="@+id/cart_tv_harga"
-        android:layout_width="58dp"
-        android:layout_height="19dp"
+        android:layout_width="108dp"
+        android:layout_height="20dp"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/montserrat"
         android:text="Rp 6.100"
         app:layout_constraintStart_toStartOf="@+id/cart_tv_namaObat"
         app:layout_constraintTop_toBottomOf="@+id/cart_tv_namaObat" />
 
     <ImageButton
         android:id="@+id/cart_ic_min"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/cart_tv_harga"
         app:layout_constraintTop_toBottomOf="@+id/cart_tv_harga"
-        app:layout_constraintVertical_bias="0.875"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/buttonmin" />
 
     <ImageButton
@@ -63,6 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
+        android:background="@color/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -71,9 +74,9 @@
 
     <ImageButton
         android:id="@+id/cart_ic_plus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="12dp"
         app:layout_constraintStart_toEndOf="@+id/cart_tv_kuantitas"
         app:layout_constraintTop_toBottomOf="@+id/cart_tv_harga"
         app:srcCompat="@drawable/buttonplus" />

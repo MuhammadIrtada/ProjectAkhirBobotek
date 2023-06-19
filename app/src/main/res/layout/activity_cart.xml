@@ -11,7 +11,7 @@
         android:id="@+id/tvCartTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:text="Cart"
         android:textColor="@color/black"
         android:textSize="28sp"
@@ -48,6 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
+            android:fontFamily="@font/montserrat_bold"
             android:text="Total Payment"
             android:textColor="@color/white"
             android:textSize="16sp"
@@ -61,7 +62,8 @@
             android:id="@+id/tv_total_biaya"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="36dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/montserrat_bold"
             android:text="Rp 21.100"
             android:textColor="@color/white"
             android:textSize="16sp"
@@ -93,27 +95,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_cart" />
 
-    <TextView
-        android:id="@+id/tv_deliv"
-        android:layout_width="74dp"
-        android:layout_height="24dp"
-        android:text="Rp 15.000"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvSubTotal"
-        app:layout_constraintTop_toTopOf="@+id/tvDelivery" />
-
-    <TextView
-        android:id="@+id/tvSubTotal"
-        android:layout_width="68dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="36dp"
-        android:text="Rp 6.100"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvSubTot" />
-
     <Button
         android:id="@+id/btn_pay"
         android:layout_width="319dp"
@@ -121,6 +102,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/bg_btn_ungu"
+        android:fontFamily="@font/montserrat_bold"
         android:text="P A Y    N O W"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -130,8 +112,8 @@
 
     <ImageButton
         android:id="@+id/ibBackCart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="34dp"
+        android:layout_height="36dp"
         app:layout_constraintBottom_toBottomOf="@+id/tvCartTitle"
         app:layout_constraintEnd_toStartOf="@+id/tvCartTitle"
         app:layout_constraintHorizontal_bias="0.245"
@@ -139,5 +121,28 @@
         app:layout_constraintTop_toTopOf="@+id/tvCartTitle"
         app:layout_constraintVertical_bias="0.7"
         app:srcCompat="@drawable/backungu" />
+
+    <TextView
+        android:id="@+id/tvSubTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Rp 15.000"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSubTot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvSubTot"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvDeliv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Rp 15.000"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDelivery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvDelivery" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
