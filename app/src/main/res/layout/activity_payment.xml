@@ -8,12 +8,13 @@
 
     <ImageView
         android:id="@+id/kotakPutih"
-        android:layout_width="match_parent"
-        android:layout_height="466dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="434dp"
+        android:layout_height="481dp"
+        android:layout_marginTop="272dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/kotakbawah" />
 
     <TextView
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
         android:text="Payment Time"
         android:textColor="#FF707175"
         android:textSize="16sp"
@@ -34,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
         android:text="Sender"
         android:textColor="#FF707175"
         android:textSize="16sp"
@@ -45,6 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
         android:text="000085752257"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -59,6 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat"
         android:text="Rp 21.100"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -73,6 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
         android:text="June 16, 2023, 13:22:16"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -87,6 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
         android:text="Jasmine Effendy"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -101,6 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
         android:text="BoBoTek"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -115,6 +123,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
         android:text="BoBoTek Wallet"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -129,6 +138,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Payment Success!"
         android:textColor="@color/black"
         android:textSize="25sp"
@@ -140,8 +150,8 @@
 
     <ImageView
         android:id="@+id/ivPayment"
-        android:layout_width="327dp"
-        android:layout_height="348dp"
+        android:layout_width="311dp"
+        android:layout_height="335dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
@@ -167,6 +177,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Payment"
         android:textColor="@color/white"
         android:textSize="25sp"
@@ -185,7 +196,8 @@
         android:textColor="#FF707175"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPaymentSuccess" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPaymentSuccess"
+        android:fontFamily="@font/montserrat" />
 
     <TextView
         android:id="@+id/tvMerchantPay"
@@ -193,11 +205,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
         android:text="Merchant Name"
         android:textColor="#FF707175"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRefPay"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvRefPay" />
 
     <TextView
         android:id="@+id/tvMethodPay"
@@ -205,10 +218,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
         android:text="Payment Method"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMerchantPay"  />
+        app:layout_constraintTop_toBottomOf="@+id/tvMerchantPay" />
 
     <TextView
         android:id="@+id/tvRefPay"
@@ -216,6 +230,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
         android:text="Ref. Number"
         android:textColor="#FF707175"
         android:textSize="16sp"
