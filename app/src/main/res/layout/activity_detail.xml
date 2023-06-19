@@ -8,20 +8,21 @@
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="match_parent"
-        android:layout_height="466dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="433dp"
+        android:layout_height="496dp"
+        android:layout_marginTop="260dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/kotakbawah" />
 
     <ImageView
         android:id="@+id/ivProductDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pd_tv_harga"
         app:srcCompat="@drawable/tolakangen" />
@@ -30,7 +31,8 @@
         android:id="@+id/pd_tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="84dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Tolak Angin - 15 ml"
         android:textColor="@color/white"
         android:textSize="25sp"
@@ -44,6 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Rp 3.000"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -52,11 +55,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pd_tv_name" />
 
+    <TextView
+        android:id="@+id/tvCategoryDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Category"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivProductDetail" />
+
+    <TextView
+        android:id="@+id/pd_tv_kategori"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="Herbal Supplement"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/tvCategoryDetail"
+        app:layout_constraintTop_toBottomOf="@+id/tvCategoryDetail" />
+
     <Button
         android:id="@+id/pd_btn_pesan"
         android:layout_width="319dp"
         android:layout_height="53dp"
         android:background="@drawable/bg_btn_ungu"
+        android:fontFamily="@font/montserrat_bold"
         android:text="A D D   T O   C A R T"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -64,27 +93,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pd_tv_des"
-        app:layout_constraintVertical_bias="0.475" />
-
-    <TextView
-        android:id="@+id/tvCategoryDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Category"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.152"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivProductDetail" />
+        app:layout_constraintVertical_bias="0.144" />
 
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Descriptions"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -96,27 +112,17 @@
         android:id="@+id/pd_tv_des"
         android:layout_width="293dp"
         android:layout_height="142dp"
-        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
         android:text="@string/description_product"
         android:textColor="#707175"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/tvDescription"
         app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
-    <TextView
-        android:id="@+id/pd_tv_kategori"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Herbal Supplement"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/tvCategoryDetail"
-        app:layout_constraintTop_toBottomOf="@+id/tvCategoryDetail" />
-
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="34dp"
+        android:layout_height="37dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.091"

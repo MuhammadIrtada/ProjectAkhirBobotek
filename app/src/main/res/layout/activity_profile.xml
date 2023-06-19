@@ -25,22 +25,21 @@
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="Profile"
         android:textColor="@color/white"
         android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
         app:layout_constraintEnd_toStartOf="@+id/profileBtLogout"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toEndOf="@+id/imageButton2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/imageButton2" />
 
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="34dp"
         android:layout_height="35dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back_button" />
@@ -55,16 +54,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.127"
         app:srcCompat="@drawable/pp" />
-
-    <ImageView
-        android:id="@+id/profileBtLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cart" />
 
     <ImageView
         android:id="@+id/imageView19"
@@ -163,40 +152,40 @@
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="60dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="Balance :"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/imageView19"
-        app:layout_constraintTop_toTopOf="@+id/imageView19" />
+        app:layout_constraintBottom_toBottomOf="@+id/profile_tv_amount"
+        app:layout_constraintEnd_toStartOf="@+id/profile_tv_amount"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView25"
+        app:layout_constraintTop_toTopOf="@+id/profile_tv_amount" />
 
     <TextView
         android:id="@+id/profile_tv_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="56dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="Rp 0"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/profil_bt_topUp"
-        app:layout_constraintStart_toEndOf="@+id/textView22"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView19" />
 
     <TextView
         android:id="@+id/profil_bt_topUp"
         android:layout_width="87dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="32dp"
+        android:layout_height="22dp"
         android:background="@drawable/card_view"
         android:fontFamily="@font/montserrat_bold"
         android:text="Top Up"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView19" />
+        app:layout_constraintBottom_toBottomOf="@+id/profile_tv_amount"
+        app:layout_constraintEnd_toEndOf="@+id/profile_et_fullName"
+        app:layout_constraintTop_toTopOf="@+id/profile_tv_amount" />
 
     <TextView
         android:id="@+id/textView25"
@@ -246,5 +235,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView16"
         app:layout_constraintEnd_toEndOf="@+id/imageView16"
         app:srcCompat="@android:drawable/stat_sys_download" />
+
+    <ImageView
+        android:id="@+id/profileBtLogout"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
