@@ -38,8 +38,8 @@
         android:fontFamily="@font/montserrat"
         android:text="Balance :"
         android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintStart_toStartOf="@+id/home_tv_address"
+        app:layout_constraintTop_toBottomOf="@+id/home_tv_address" />
 
     <TextView
         android:id="@+id/textView14"
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/home_tv_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/home_tv_saldo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -93,9 +93,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView15"
-        app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toTopOf="@+id/textView15"
+        app:layout_constraintBottom_toBottomOf="@+id/home_tv_address"
+        app:layout_constraintStart_toEndOf="@+id/home_tv_address"
+        app:layout_constraintTop_toTopOf="@+id/home_tv_address"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/location" />
 
