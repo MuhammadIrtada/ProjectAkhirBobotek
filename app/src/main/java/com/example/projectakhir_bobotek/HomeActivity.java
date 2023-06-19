@@ -1,17 +1,15 @@
 package com.example.projectakhir_bobotek;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.example.projectakhir_bobotek.databinding.ActivityHomeBinding;
 import com.example.projectakhir_bobotek.model.Medicine;
-import com.example.projectakhir_bobotek.model.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,26 +21,28 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends AppCompatActivity {
 
-    ActivityHomeBinding binding;
-    private DatabaseReference medicineReference;
-    private DatabaseReference userReference;
+public class HomeActivity extends AppCompatActivity {
+    private ActivityHomeBinding binding; // Binding ActivityHome
     private ArrayList<Medicine> medicineArratList; // Arraylist untuk daftar medicine
     private HomeAdapter homeAdapter; // Adapter
 
+    // inisiais DatabaseRefernce
+    private DatabaseReference medicineReference;
+    private DatabaseReference userReference;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Melakukan inflate binding
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         // Menghubungkan pada Firebase
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        medicineReference = databaseReference.child("medicine");
-        userReference = databaseReference.child("users").child(mAuth.getUid()).child("profile");
-
+        FirebaseSingleton firebaseSingleton = FirebaseSingleton.getInstance();
+        userReference = firebaseSingleton.getFirebaseDatabase().child("users").child(mAuth.getUid()).child("profile");
+        medicineReference = firebaseSingleton.getFirebaseDatabase().child("medicine");
+        mAuth = firebaseSingleton.getFirebaseAuth();
 
         // Melakuakan create medicine pada realtime database
 //         binding.homeBtnAddMedicine.setOnClickListener(v -> {
@@ -55,6 +55,9 @@ public class HomeActivity extends AppCompatActivity {
         // Mengatur Layout Manager
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         binding.homeRvMdcn.setLayoutManager(layoutManager);
+
+        // Menampilkan semua daftar obat
+        getAllMedicine();
 
         // Button cart
         binding.homeIcCart.setOnClickListener(v -> {
@@ -103,6 +106,12 @@ public class HomeActivity extends AppCompatActivity {
                 System.out.println(error);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        System.out.println("backpressed");
+        finishAndRemoveTask();
     }
 
     // Instansiai obat

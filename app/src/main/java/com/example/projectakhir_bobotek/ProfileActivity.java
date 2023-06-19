@@ -1,14 +1,8 @@
 package com.example.projectakhir_bobotek;
 
-import static android.os.Environment.DIRECTORY_DOWNLOADS;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.DownloadManager;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -16,6 +10,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -46,7 +42,9 @@ public class ProfileActivity extends AppCompatActivity {
     // Inisiasi database refrence
     DatabaseReference databaseReference;
     DatabaseReference profileReference;
+
     FirebaseAuth mAuth;
+
     User user;
     private FirebaseStorage storage;
 
@@ -56,14 +54,11 @@ public class ProfileActivity extends AppCompatActivity {
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Menginstansiasi Auth
-        mAuth = FirebaseAuth.getInstance();
-
-        // Menginstansiasi database
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        profileReference = databaseReference.child("users").child(mAuth.getUid()).child("profile");
+        // Menghubungkan database dan auth
+        FirebaseSingleton firebaseSingleton = FirebaseSingleton.getInstance();
+        mAuth = firebaseSingleton.getFirebaseAuth();
+        profileReference = firebaseSingleton.getFirebaseDatabase().child("users").child(mAuth.getUid()).child("profile");
         storage = FirebaseStorage.getInstance();
-
         // Mengambil data profile
         getProfile();
 
@@ -98,6 +93,9 @@ public class ProfileActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         });
+        binding.back.setOnClickListener(v -> {
+            finish();
+        });
     }
 
     public void getProfile() {
@@ -109,6 +107,7 @@ public class ProfileActivity extends AppCompatActivity {
                 binding.profileEtPhone.setText(user.phoneNumber);
                 binding.profileTvAmount.setText(String.valueOf(user.saldo));
                 Glide.with(getApplicationContext()).load(user.profileImage).into(binding.profileIvProfileImage);
+                binding.profileEtEmail.setText(mAuth.getCurrentUser().getEmail());
             }
 
             @Override
@@ -119,6 +118,10 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void saveProfile() {
+        if (!validateForm()){
+            return;
+        }
+
         String newName = binding.profileEtFullName.getText().toString();
         String newPhone = binding.profileEtPhone.getText().toString();
         user.fullName = newName;
@@ -129,6 +132,23 @@ public class ProfileActivity extends AppCompatActivity {
                 Toast.makeText(ProfileActivity.this, "Berhasil melakukan save", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private boolean validateForm() {
+        boolean result = true;
+        if (TextUtils.isEmpty(binding.profileEtFullName.getText().toString())){
+            binding.profileEtFullName.setError("Required");
+            result = false;
+        } else {
+            binding.profileEtFullName.setError(null);
+        }
+        if (TextUtils.isEmpty(binding.profileEtPhone.getText().toString())){
+            binding.profileEtPhone.setError("Required");
+            result = false;
+        } else {
+            binding.profileEtPhone.setError(null);
+        }
+        return result;
     }
 
     private void selectImage() {

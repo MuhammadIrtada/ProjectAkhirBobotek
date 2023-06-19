@@ -58,6 +58,11 @@ public class CartActivity extends AppCompatActivity {
         binding.btnPay.setOnClickListener(v -> {
             pay();
         });
+
+        // Back press
+        binding.cartBtBack.setOnClickListener(v -> {
+            finish();
+        });
     }
 
     private void getAllCart(){
@@ -85,6 +90,7 @@ public class CartActivity extends AppCompatActivity {
                 binding.tvDeliv.setText(String.valueOf(deliverFee));
                 totalBiaya = subTotal + deliverFee;
                 binding.tvTotalBiaya.setText(String.valueOf(totalBiaya));
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -120,6 +126,7 @@ public class CartActivity extends AppCompatActivity {
         intent.putExtra("REFFNUM", reffNum);
         intent.putExtra("SENDER", user.fullName);
         startActivity(intent);
+        finish();
     }
 
     // Membuat pay time

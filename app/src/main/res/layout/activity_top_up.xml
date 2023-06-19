@@ -19,7 +19,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.354"
-        app:layout_constraintStart_toEndOf="@+id/ibBackTopUp"
+        app:layout_constraintStart_toEndOf="@+id/tu_bt_back"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -38,7 +38,7 @@
         app:layout_constraintVertical_bias="0.91" />
 
     <ImageButton
-        android:id="@+id/ibBackTopUp"
+        android:id="@+id/tu_bt_back"
         android:layout_width="34dp"
         android:layout_height="35dp"
         app:layout_constraintBottom_toBottomOf="@+id/tvTitleTopUp"

@@ -23,8 +23,7 @@ import java.util.Objects;
 public class ProductDetailActivity extends AppCompatActivity {
     private ActivityDetailBinding binding;
     private Medicine medicine;
-    DatabaseReference databaseReference;
-    DatabaseReference cartReference;
+    DatabaseReference userReference;
     FirebaseAuth mAuth;
 
     // Mengecek name dan variabel
@@ -40,11 +39,9 @@ public class ProductDetailActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         // Menghubungkan pada realtime database
-        databaseReference = FirebaseDatabase.getInstance("https://project-akhir-bobotek-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
-        cartReference = databaseReference.child("users");
-
-        // Auth
-        mAuth = FirebaseAuth.getInstance();
+        FirebaseSingleton firebaseSingleton = FirebaseSingleton.getInstance();
+        userReference = firebaseSingleton.getFirebaseDatabase().child("users");
+        mAuth = firebaseSingleton.getFirebaseAuth();
 
         // mengambil intent
         medicine = getIntent().getParcelableExtra("EXTRA MEDICINE");
@@ -57,11 +54,15 @@ public class ProductDetailActivity extends AppCompatActivity {
         binding.pdBtnPesan.setOnClickListener(v -> {
             pesanMedicine();
         });
+
+        binding.back.setOnClickListener(v -> {
+            finish();
+        });
     }
 
     private void pesanMedicine(){
         Cart c = new Cart(medicine.getNama(), medicine.getHarga(), 1, medicine.getStok());
-        cartReference.child(mAuth.getUid()).child("cart").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        userReference.child(mAuth.getUid()).child("cart").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 for (DataSnapshot s: task.getResult().getChildren()){
@@ -75,14 +76,14 @@ public class ProductDetailActivity extends AppCompatActivity {
                 }
                 System.out.println(isSameName);
                 if (isSameName) {
-                    cartReference.child(mAuth.getUid()).child("cart").child(getKey).child("kuantitas").setValue(getKuantitas+1).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    userReference.child(mAuth.getUid()).child("cart").child(getKey).child("kuantitas").setValue(getKuantitas+1).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(ProductDetailActivity.this, "Cart sudah ada", Toast.LENGTH_SHORT).show();
                         }
                     });
                 } else {
-                    cartReference.child(mAuth.getUid()).child("cart").push().setValue(c).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    userReference.child(mAuth.getUid()).child("cart").push().setValue(c).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(ProductDetailActivity.this, "Medicine ditambahkan pada cart", Toast.LENGTH_SHORT).show();
