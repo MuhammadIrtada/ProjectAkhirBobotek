@@ -79,16 +79,6 @@
         app:layout_constraintTop_toTopOf="@+id/textView16" />
 
     <ImageView
-        android:id="@+id/home_ic_profile"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pp" />
-
-    <ImageView
         android:id="@+id/imageView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -122,5 +112,21 @@
         app:layout_constraintTop_toTopOf="@+id/textView18"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/cart" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="28dp"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/home_ic_profile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/pp" />
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
