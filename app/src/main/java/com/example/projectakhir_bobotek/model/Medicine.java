@@ -12,14 +12,16 @@ public class Medicine implements Parcelable {
     private int harga;
     private int stok;
     private String key;
+    private int source;
 
     // Constructor
-    public Medicine(String nama, String kategori, String deskripsi, int harga, int stok){
+    public Medicine(String nama, String kategori, String deskripsi, int harga, int stok, int source){
         this.nama = nama;
         this.kategori = kategori;
         this.deskripsi = deskripsi;
         this.harga = harga;
         this.stok = stok;
+        this.source = source;
     }
 
     Medicine() {
@@ -74,6 +76,14 @@ public class Medicine implements Parcelable {
         return key;
     }
 
+    public void setSource(int source) {
+        this.source = source;
+    }
+
+    public int getSource() {
+        return source;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -87,6 +97,7 @@ public class Medicine implements Parcelable {
         parcel.writeString(this.deskripsi);
         parcel.writeInt(this.stok);
         parcel.writeInt(this.harga);
+        parcel.writeInt(this.source);
     }
     private Medicine(Parcel in){
         this.key = in.readString();
@@ -95,6 +106,7 @@ public class Medicine implements Parcelable {
         this.deskripsi = in.readString();
         this.stok = in.readInt();
         this.harga = in.readInt();
+        this.source = in.readInt();
     }
 
     public static final Creator<Medicine> CREATOR = new Creator<Medicine>(){

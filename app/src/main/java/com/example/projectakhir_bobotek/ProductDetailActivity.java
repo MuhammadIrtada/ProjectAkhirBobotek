@@ -49,6 +49,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         binding.pdTvName.setText(medicine.getNama());
         binding.pdTvKategori.setText(medicine.getKategori());
         binding.pdTvDes.setText(medicine.getDeskripsi());
+        binding.puImg.setImageResource(medicine.getSource());
         binding.pdTvHarga.setText("Rp." + String.valueOf(medicine.getHarga()));
 
         binding.pdBtnPesan.setOnClickListener(v -> {
@@ -61,7 +62,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     }
 
     private void pesanMedicine(){
-        Cart c = new Cart(medicine.getNama(), medicine.getHarga(), 1, medicine.getStok());
+        Cart c = new Cart(medicine.getNama(), medicine.getHarga(), 1, medicine.getStok(), medicine.getSource());
         userReference.child(mAuth.getUid()).child("cart").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {

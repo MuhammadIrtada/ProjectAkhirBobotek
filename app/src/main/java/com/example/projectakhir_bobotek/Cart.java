@@ -6,16 +6,18 @@ public class Cart {
     private int harga;
     private int kuantitas;
     private int stok;
+    private int source;
 
     Cart () {
 
     }
 
-    Cart (String nama, int harga, int kuantitas, int stok){
+    Cart (String nama, int harga, int kuantitas, int stok, int source){
         this.nama = nama;
         this.harga = harga;
         this.kuantitas = kuantitas;
         this.stok = stok;
+        this.source = source;
     }
 
     public void setKey(String key) {
@@ -56,5 +58,13 @@ public class Cart {
 
     public int getKuantitas() {
         return kuantitas;
+    }
+
+    public void setSource(int source) {
+        this.source = source;
+    }
+
+    public int getSource() {
+        return source;
     }
 }

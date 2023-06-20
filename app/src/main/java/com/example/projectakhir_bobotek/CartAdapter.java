@@ -61,6 +61,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.VH> {
             binding.cartTvNamaObat.setText(cart.getNama());
             binding.cartTvHarga.setText(String.valueOf(cart.getHarga()));
             binding.cartTvKuantitas.setText(String.valueOf(cart.getKuantitas()));
+            binding.cartImg.setImageResource(cart.getSource());
             binding.cartIcPlus.setOnClickListener(v -> {
                 int tambah = cart.getKuantitas() + 1;
                 this.cartReference.child(cart.getKey()).child("kuantitas").setValue(tambah)

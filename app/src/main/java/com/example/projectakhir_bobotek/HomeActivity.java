@@ -118,16 +118,21 @@ public class HomeActivity extends AppCompatActivity {
 
     // Instansiai obat
     private void createMedicine() {
-        Medicine obat1 = new Medicine("Betadine Antiseptic", "Antiseptic", "Antiseptic solution for disinfection.", 6100, 10);
+        int source;
+        source = R.drawable.betadine;
+        Medicine obat1 = new Medicine("Betadine Antiseptic", "Antiseptic", "Antiseptic solution for disinfection.", 6100, 10, source);
         pushFirebase(obat1);
 
-        Medicine obat2 = new Medicine("Panadol Biru - 500 mg", " Analgesik", "Paracetamol or acetaminophen.", 16000, 12);
+        source = R.drawable.panadol;
+        Medicine obat2 = new Medicine("Panadol Biru - 500 mg", " Analgesik", "Paracetamol or acetaminophen.", 16000, 12, source);
         pushFirebase(obat2);
 
-        Medicine obat3 = new Medicine("Tolak Angin - 15 ml", "Herbal Supplement", "Relieving colds, flu, and general fatigue.", 3000, 5);
+        source = R.drawable.tolakangin;
+        Medicine obat3 = new Medicine("Tolak Angin - 15 ml", "Herbal Supplement", "Relieving colds, flu, and general fatigue.", 3000, 5, source);
         pushFirebase(obat3);
 
-        Medicine obat4 = new Medicine("Diapet Kapsul - 10 Pcs", "Antasid", "Herbal medicine used to treat diarrhea.", 3000, 15);
+        source = R.drawable.diapet;
+        Medicine obat4 = new Medicine("Diapet Kapsul - 10 Pcs", "Antasid", "Herbal medicine used to treat diarrhea.", 3000, 15, source);
         pushFirebase(obat4);
     }
 
@@ -155,6 +160,6 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         Glide.with(getApplicationContext()).load(user.profileImage).into(binding.homeIcProfile);
-        getAllMedicine();
+//        getAllMedicine();
     }
 }

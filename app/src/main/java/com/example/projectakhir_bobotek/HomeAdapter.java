@@ -52,6 +52,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.VH> {
             binding.homeTvKategori.setText(medicine.getKategori());
             binding.homeTvDes.setText(medicine.getDeskripsi());
             binding.homeTvHarga.setText(String.valueOf(medicine.getHarga()));
+            binding.homeImg.setImageResource(medicine.getSource());
             binding.homeCvMedicine.setOnClickListener(v -> {
                 Intent intent = new Intent(v.getContext(), ProductDetailActivity.class);
                 intent.putExtra("EXTRA MEDICINE", medicine);
