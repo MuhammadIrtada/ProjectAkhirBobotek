@@ -28,7 +28,7 @@
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_ic_cart"
-        tools:listitem="@layout/item_home" />
+        tools:listitem="@layout/item_medicine" />
 
     <TextView
         android:id="@+id/textView16"
@@ -114,6 +114,7 @@
         app:srcCompat="@drawable/cart" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="68dp"
@@ -128,5 +129,16 @@
             android:layout_height="match_parent"
             app:srcCompat="@drawable/pp" />
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="35dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/home_ic_cart"
+        app:layout_constraintEnd_toStartOf="@+id/home_ic_cart"
+        app:layout_constraintTop_toTopOf="@+id/home_ic_cart"
+        app:layout_constraintVertical_bias="0.388"
+        app:srcCompat="@drawable/news" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
