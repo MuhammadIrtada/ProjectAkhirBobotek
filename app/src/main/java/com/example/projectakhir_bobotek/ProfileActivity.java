@@ -132,8 +132,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         String newName = binding.profileEtFullName.getText().toString();
         String newPhone = binding.profileEtPhone.getText().toString();
+        String newAddress = binding.profileEtAddress.getText().toString();
         user.fullName = newName;
         user.phoneNumber = newPhone;
+        user.address = newAddress;
         profileReference.setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
