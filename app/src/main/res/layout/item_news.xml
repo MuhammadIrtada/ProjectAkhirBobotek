@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="37dp"
+            android:layout_marginTop="90dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="Kemenkes"
             android:textColor="@color/black"
@@ -40,7 +40,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="37dp"
+            android:layout_marginTop="90dp"
             app:srcCompat="@drawable/avatar" />
 
         <TextView
@@ -48,7 +48,7 @@
             android:layout_width="205dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="120dp"
             android:fontFamily="@font/montserrat"
             android:text="Klik Untuk Selengkapnya"
             android:textColor="@color/black"
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="150dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="21 Juni 2023"
             android:textColor="@color/black" />
