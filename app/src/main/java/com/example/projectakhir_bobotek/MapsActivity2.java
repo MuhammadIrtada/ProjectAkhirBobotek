@@ -11,7 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.example.projectakhir_bobotek.databinding.ActivityMapsBinding;
+import com.example.projectakhir_bobotek.model.User;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -20,34 +20,37 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.example.projectakhir_bobotek.databinding.ActivityMaps2Binding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private ActivityMapsBinding binding;
+    private ActivityMaps2Binding binding;
     private FusedLocationProviderClient locationProviderClient;
     private Geocoder geocoder;
     private List<Address> addresses;
+    private double latitude, longitude;
+    String address;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMapsBinding.inflate(getLayoutInflater());
+        binding = ActivityMaps2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        locationProviderClient =
-                LocationServices.getFusedLocationProviderClient(MapsActivity.this);
+        locationProviderClient = LocationServices.getFusedLocationProviderClient(MapsActivity2.this);
         geocoder = new Geocoder(this, Locale.getDefault());
+        getLocation();
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.mvMaps);
-        mapFragment.getMapAsync(this);
+
     }
 
     /**
@@ -64,8 +67,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng userLocation = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(userLocation).title("Your Location"));
+        LatLng userLocation = new LatLng(latitude, longitude);
+        mMap.addMarker(new MarkerOptions().position(userLocation).title(address));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
     }
 
@@ -99,8 +102,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         android.Manifest.permission.ACCESS_COARSE_LOCATION) !=
                         PackageManager.PERMISSION_GRANTED) {
             // get Permission
-            if (Build.VERSION.SDK_INT >=
-                    Build.VERSION_CODES.M) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 requestPermissions(new String[]{
                         android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION
                 }, 10);
@@ -110,12 +112,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             locationProviderClient.getLastLocation().addOnSuccessListener(location -> {
                 if (location!=null) {
                     try {
-                        addresses = geocoder.getFromLocation(location.getLatitude(),
-                                location.getLongitude(), 1);
+                        latitude = location.getLatitude();
+                        longitude = location.getLongitude();
+                        addresses = geocoder.getFromLocation(latitude, longitude, 1);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-                    String address = addresses.get(0).getAddressLine(0);
+                    address = addresses.get(0).getAddressLine(0);
+
+                    // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+                    SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+                    mapFragment.getMapAsync(this);
+
+                    addDataToDatabase(location.getLatitude(), location.getLongitude(), address.split(",")[0]);
+
                 }else{
                     Toast.makeText(getApplicationContext(), "Lokasi tidak aktif!", Toast.LENGTH_SHORT).show();
                 }
@@ -123,5 +133,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Toast.makeText(getApplicationContext(),
                             e.getLocalizedMessage(), Toast.LENGTH_SHORT).show());
         }
+    }
+
+    private void addDataToDatabase(double latitude, double longitude, String address) {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("users").child(mAuth.getUid()).child("profile").child("latitude").setValue(latitude);
+        mDatabase.child("users").child(mAuth.getUid()).child("profile").child("longitude").setValue(longitude);
+        mDatabase.child("users").child(mAuth.getUid()).child("profile").child("address").setValue(address);
     }
 }

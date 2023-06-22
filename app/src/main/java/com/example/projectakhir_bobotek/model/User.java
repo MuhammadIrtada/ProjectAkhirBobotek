@@ -9,6 +9,8 @@ public class User {
     public String profileImage;
     public String address;
     public int saldo;
+    public double latitude;
+    public double longitude;
 
     public User(){}
 

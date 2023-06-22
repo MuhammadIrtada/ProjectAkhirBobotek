@@ -73,6 +73,12 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        // Button maps
+        binding.homeIvMaps.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, MapsActivity2.class);
+            startActivity(intent);
+        });
+
         ValueEventListener userListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

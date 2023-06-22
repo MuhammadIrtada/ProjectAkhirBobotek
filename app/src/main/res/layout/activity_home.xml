@@ -79,7 +79,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView16" />
 
     <ImageView
-        android:id="@+id/imageView13"
+        android:id="@+id/home_iv_maps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
