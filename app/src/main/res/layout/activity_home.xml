@@ -78,6 +78,17 @@
         app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toTopOf="@+id/textView16" />
 
+    <ImageView
+        android:id="@+id/home_iv_maps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/home_tv_address"
+        app:layout_constraintStart_toEndOf="@+id/home_tv_address"
+        app:layout_constraintTop_toTopOf="@+id/home_tv_address"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/location" />
+
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
@@ -129,6 +140,5 @@
         app:layout_constraintTop_toTopOf="@+id/home_ic_cart"
         app:layout_constraintVertical_bias="0.388"
         app:srcCompat="@drawable/news" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

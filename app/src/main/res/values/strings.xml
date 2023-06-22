@@ -4,4 +4,5 @@
         \n\nThe ingredients typically include ginger, cloves, fennel, mint, nutmeg, and various other herbs.</string>
     <string name="instruction">1. Select Transfer >> Choose Virtual Account\n2. Enter the Virtual Account number: 123 08XXXXXXXX\n3. Enter the desired top-up amount (minimum Rp10,000)\n4. Enter your PIN and select OK
     </string>
+    <string name="title_activity_maps2">MapsActivity2</string>
 </resources>

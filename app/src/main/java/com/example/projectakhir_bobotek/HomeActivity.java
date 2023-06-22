@@ -73,6 +73,12 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        // Button maps
+        binding.homeIvMaps.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, MapsActivity.class);
+            startActivity(intent);
+        });
+
         //Button news
         binding.homeIcNews.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, NewsActivity.class);

@@ -113,6 +113,7 @@ public class ProfileActivity extends AppCompatActivity {
                 binding.profileEtFullName.setText(user.fullName);
                 binding.profileEtPhone.setText(user.phoneNumber);
                 binding.profileTvAmount.setText(String.valueOf(user.saldo));
+                binding.profileEtAddress.setText(user.address);
                 Glide.with(getApplicationContext()).load(user.profileImage).into(binding.profileIvProfileImage);
                 binding.profileEtEmail.setText(mAuth.getCurrentUser().getEmail());
             }
