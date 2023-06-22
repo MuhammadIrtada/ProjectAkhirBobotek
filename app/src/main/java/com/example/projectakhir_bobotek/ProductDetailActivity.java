@@ -49,7 +49,8 @@ public class ProductDetailActivity extends AppCompatActivity {
         binding.pdTvName.setText(medicine.getNama());
         binding.pdTvKategori.setText(medicine.getKategori());
         binding.pdTvDes.setText(medicine.getDeskripsi());
-        binding.puImg.setImageResource(medicine.getSource());
+        int source = setGambar(medicine.getSource());
+        binding.puImg.setImageResource(source);
         binding.pdTvHarga.setText("Rp." + String.valueOf(medicine.getHarga()));
 
         binding.pdBtnPesan.setOnClickListener(v -> {
@@ -98,5 +99,19 @@ public class ProductDetailActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    public int setGambar(String medicine) {
+        switch (medicine) {
+            case "betadine.png" :
+                return R.drawable.betadine;
+            case "panadol.png" :
+                return R.drawable.panadol;
+            case "diapet.png" :
+                return R.drawable.diapet;
+            case "tolakangin.png":
+                return R.drawable.tolakangin;
+            default:
+                return R.drawable.betadine;
+        }
     }
 }

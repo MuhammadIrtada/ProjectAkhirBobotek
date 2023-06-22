@@ -33,6 +33,8 @@ public class NewsActivity extends AppCompatActivity {
         binding.newsRv.setLayoutManager(mLayout);
 
         getAllNews();
+
+        binding.newsBack.setOnClickListener(v -> finish());
     }
 
     public void getAllNews() {

@@ -130,21 +130,16 @@ public class HomeActivity extends AppCompatActivity {
 
     // Instansiai obat
     private void createMedicine() {
-        int source;
-        source = R.drawable.betadine;
-        Medicine obat1 = new Medicine("Betadine Antiseptic", "Antiseptic", "Antiseptic solution for disinfection.", 6100, 10, source);
+        Medicine obat1 = new Medicine("Betadine Antiseptic", "Antiseptic", "Antiseptic solution for disinfection.", 6100, 10, "betadine.png");
         pushFirebase(obat1);
 
-        source = R.drawable.panadol;
-        Medicine obat2 = new Medicine("Panadol Biru - 500 mg", " Analgesik", "Paracetamol or acetaminophen.", 16000, 12, source);
+        Medicine obat2 = new Medicine("Panadol Biru - 500 mg", " Analgesik", "Paracetamol or acetaminophen.", 16000, 12, "panadol.png");
         pushFirebase(obat2);
 
-        source = R.drawable.tolakangin;
-        Medicine obat3 = new Medicine("Tolak Angin - 15 ml", "Herbal Supplement", "Relieving colds, flu, and general fatigue.", 3000, 5, source);
+        Medicine obat3 = new Medicine("Tolak Angin - 15 ml", "Herbal Supplement", "Relieving colds, flu, and general fatigue.", 3000, 5, "tolakangin.png");
         pushFirebase(obat3);
 
-        source = R.drawable.diapet;
-        Medicine obat4 = new Medicine("Diapet Kapsul - 10 Pcs", "Antasid", "Herbal medicine used to treat diarrhea.", 3000, 15, source);
+        Medicine obat4 = new Medicine("Diapet Kapsul - 10 Pcs", "Antasid", "Herbal medicine used to treat diarrhea.", 3000, 15, "diapet.png");
         pushFirebase(obat4);
     }
 

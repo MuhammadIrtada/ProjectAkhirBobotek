@@ -52,12 +52,28 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.VH> {
             binding.homeTvKategori.setText(medicine.getKategori());
             binding.homeTvDes.setText(medicine.getDeskripsi());
             binding.homeTvHarga.setText(String.valueOf(medicine.getHarga()));
-            binding.homeImg.setImageResource(medicine.getSource());
             binding.homeCvMedicine.setOnClickListener(v -> {
                 Intent intent = new Intent(v.getContext(), ProductDetailActivity.class);
                 intent.putExtra("EXTRA MEDICINE", medicine);
                 v.getContext().startActivity(intent);
             });
+            int source = setGambar(medicine.getSource());
+            binding.homeImg.setImageResource(source);
+        }
+    }
+
+    public int setGambar(String medicine) {
+        switch (medicine) {
+            case "betadine.png" :
+                return R.drawable.betadine;
+            case "panadol.png" :
+                return R.drawable.panadol;
+            case "diapet.png" :
+                return R.drawable.diapet;
+            case "tolakangin.png":
+                return R.drawable.tolakangin;
+            default:
+                return R.drawable.betadine;
         }
     }
 }

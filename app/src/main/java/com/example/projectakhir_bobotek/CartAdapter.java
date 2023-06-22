@@ -61,7 +61,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.VH> {
             binding.cartTvNamaObat.setText(cart.getNama());
             binding.cartTvHarga.setText(String.valueOf(cart.getHarga()));
             binding.cartTvKuantitas.setText(String.valueOf(cart.getKuantitas()));
-            binding.cartImg.setImageResource(cart.getSource());
+            int source = setGambar(cart.getSource());
+            binding.cartImg.setImageResource(source);
             binding.cartIcPlus.setOnClickListener(v -> {
                 int tambah = cart.getKuantitas() + 1;
                 this.cartReference.child(cart.getKey()).child("kuantitas").setValue(tambah)
@@ -104,6 +105,20 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.VH> {
                     Toast.makeText(v.getContext(), "Gagal Menghapus cart" , Toast.LENGTH_SHORT).show();
                 });
             });
+        }
+    }
+    public int setGambar(String medicine) {
+        switch (medicine) {
+            case "betadine.png" :
+                return R.drawable.betadine;
+            case "panadol.png" :
+                return R.drawable.panadol;
+            case "diapet.png" :
+                return R.drawable.diapet;
+            case "tolakangin.png":
+                return R.drawable.tolakangin;
+            default:
+                return R.drawable.betadine;
         }
     }
 }
