@@ -73,6 +73,12 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        //Button news
+        binding.homeIcNews.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, NewsActivity.class);
+            startActivity(intent);
+        });
+
         ValueEventListener userListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

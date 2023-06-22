@@ -9,6 +9,6 @@ public class BeritaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_berita);
+        setContentView(R.layout.activity_news);
     }
 }
