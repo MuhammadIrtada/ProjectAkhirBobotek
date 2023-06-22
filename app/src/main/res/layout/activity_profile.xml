@@ -66,8 +66,8 @@
         android:fontFamily="@font/montserrat_bold"
         android:text="Save"
         android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/editText4"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintStart_toStartOf="@+id/profile_et_address"
+        app:layout_constraintTop_toBottomOf="@+id/profile_et_address" />
 
     <EditText
         android:id="@+id/profile_et_phone"
@@ -124,7 +124,7 @@
         app:layout_constraintTop_toBottomOf="@+id/profile_et_phone" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/profile_et_address"
         android:layout_width="340dp"
         android:layout_height="45dp"
         android:layout_marginTop="25dp"
@@ -216,8 +216,8 @@
         android:fontFamily="@font/montserrat_bold"
         android:text="Address"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/editText4"
-        app:layout_constraintStart_toStartOf="@+id/editText4" />
+        app:layout_constraintBottom_toTopOf="@+id/profile_et_address"
+        app:layout_constraintStart_toStartOf="@+id/profile_et_address" />
 
     <ImageView
         android:id="@+id/profileBtLogout"

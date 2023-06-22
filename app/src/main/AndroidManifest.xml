@@ -34,7 +34,7 @@
             android:value="AIzaSyBD676rQwuGQVFRqeknuYH161BQ6JLgukU" />
 
         <activity
-            android:name=".MapsActivity2"
+            android:name=".MapsActivity"
             android:exported="false"
             android:label="@string/title_activity_maps2" />
         <activity
@@ -42,9 +42,6 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MapsActivity"
             android:exported="false" />
         <activity
             android:name=".TopUpActvity"
