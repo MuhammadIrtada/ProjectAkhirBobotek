@@ -39,6 +39,8 @@ public class TopUpActvity extends AppCompatActivity {
             finish();
         });
     }
+
+    // topUp -> melakukan update pada saldo profile sesuai isi editText
     private void topUp() {
         if (!validateForm()){
             return;
@@ -51,6 +53,7 @@ public class TopUpActvity extends AppCompatActivity {
         finish();
     }
 
+    // User tidak bisa melakukan topUp ketika data edit text kosong
     private boolean validateForm() {
         boolean result = true;
         if (TextUtils.isEmpty(binding.tuEtPhone.getText().toString())){

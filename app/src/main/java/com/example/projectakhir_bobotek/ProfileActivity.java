@@ -65,6 +65,7 @@ public class ProfileActivity extends AppCompatActivity {
         mAuth = firebaseSingleton.getFirebaseAuth();
         profileReference = firebaseSingleton.getFirebaseDatabase().child("users").child(mAuth.getUid()).child("profile");
         storage = FirebaseStorage.getInstance();
+
         // Mengambil data profile
         getProfile();
 
@@ -105,6 +106,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
+    // getProfile -> mendapatkan data profile
     public void getProfile() {
         profileReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -125,6 +127,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
+    // save profile -> update data pada profile
     public void saveProfile() {
         if (!validateForm()){
             return;
@@ -144,6 +147,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
+    // USer tidak dapat melakukan save profile ketika salah satu edit text kosong
     private boolean validateForm() {
         boolean result = true;
         if (TextUtils.isEmpty(binding.profileEtFullName.getText().toString())){
